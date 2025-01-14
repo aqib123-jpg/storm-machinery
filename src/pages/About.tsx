@@ -4,6 +4,7 @@ import OurAdvantages from '../components/OurAdvantages.tsx';
 import SliderForBrands from '../components/SliderForBrands.tsx';
 import HotSaleProducts from '../components/HotSaleProducts.tsx';
 import AboveFooter from '../components/AboveFooter.tsx';
+import Professionalism from '../components/Professionalism.tsx';
 
 
 const About: React.FC = () => {
@@ -13,6 +14,7 @@ const About: React.FC = () => {
       <AboutUsDescription/>
       <OurAdvantages/>
       <SliderForBrands/>
+      <Professionalism/>
       <HotSaleProducts/>
       <AboveFooter/>
     </>

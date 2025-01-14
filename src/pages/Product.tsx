@@ -1,9 +1,13 @@
 import React from 'react'
+import CardComponent from '../components/CardComponent.tsx';
+import AboveFooter from '../components/AboveFooter.tsx';
 
 const Product: React.FC = () => {
-  console.log('inside the product tag');
   return (
-    <div>Product</div>
+    <>
+      <CardComponent/>
+      <AboveFooter/>
+    </>
   )
 }
 

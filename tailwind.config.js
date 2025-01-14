@@ -14,6 +14,7 @@ module.exports = {
         playfair: ['"Playfair Display"', 'serif'],
       },
       screens: {
+        
         xs: '400px', 
       },
       writingMode: {
