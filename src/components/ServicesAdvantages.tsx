@@ -13,7 +13,7 @@ const ServicesAdvantages: React.FC = () => {
     },
   ];
   return (
-    <div  className="p-8 my-12">
+    <div  className="p-8 my-20">
       <h2 className="text-center text-3xl font-bold mb-8 font-playfair text-[#272a2b]">Our Advantages</h2>
       {/* <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-20">
         {products.map((product, index) => (
