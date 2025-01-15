@@ -273,7 +273,7 @@ const Navbar: React.FC = () => {
       ) : 
 
       (isMenuOpen && !isWideScreen) ? (
-        <HamburgerOptions isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+        <HamburgerOptions isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsSearchOpen={setIsSearchOpen}/>
       ) : (
         <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
           <div className="flex xs:flex-row flex-col items-center space-x-0 xs:space-x-2 space-y-2 xs:space-y-0">

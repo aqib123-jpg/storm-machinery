@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 interface HamburgerType {
   isMenuOpen: boolean; // Added `isMenuOpen` as a prop
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>; // Correct type for state setter
+  setIsSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HamburgerOptions: React.FC<HamburgerType> = ({ isMenuOpen, setIsMenuOpen }) => {
+const HamburgerOptions: React.FC<HamburgerType> = ({ isMenuOpen, setIsMenuOpen ,setIsSearchOpen}) => {
   return (
     // <div>
     //     <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-700 hover:text-gray-900 font-bold text-3xl my-2 mx-2">
@@ -38,7 +39,7 @@ const HamburgerOptions: React.FC<HamburgerType> = ({ isMenuOpen, setIsMenuOpen }
         <Link to="/services" onClick={() => setIsMenuOpen(false)}>Services</Link>
         <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Contact</Link>
         <Link to="/faq" onClick={() => setIsMenuOpen(false)}>FAQ</Link>
-        <div className="flex justify-center">
+        <div className="flex justify-center" onClick={() => setIsSearchOpen(true)}>
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M11 19a8 8 0 100-16 8 8 0 000 16zm7-2l4 4" />
           </svg>
