@@ -55,13 +55,13 @@ const CardComponent:React.FC = () => {
       ];
         
   return (
-    <div className='grid grid-cols-1 gap-24 px-5'>
+    <div className='grid grid-cols-1 gap-24 mb-20'>
         <div className='flex flex-col gap-4 justify-center bg-[#E7EAEC] h-[30vh] items-center'>
             <h1 className='text-5xl text-[#272a2b] font-playfair font-semibold'>Products</h1>
             <h5 className='font-inter text-[#393939]'>首页 / Products</h5>
         </div>
         <div className=''>
-            <span className='font-inter text-[#4b4c4c]'>Showing all 9 results</span>
+            <span className='font-inter text-[#4b4c4c]  px-5'>Showing all 9 results</span>
             {/* <div className="flex flex-wrap gap-5 justify-center bg-white bg-opacity-70">
                 {products.slice().reverse().map((product) => (
                     <div key={product.id} className="mt-8 mb-8 w-[276px] h-[388px] border border-gray-200 rounded-lg shadow-md overflow-hidden relative transition-transform duration-500 ease-in-out hover:translate-y-[-10px] hover:shadow-lg">

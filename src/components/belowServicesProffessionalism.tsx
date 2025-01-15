@@ -3,7 +3,7 @@ import { FaArrowDown } from 'react-icons/fa';
 
 const BelowServicesProffessionalism: React.FC = () => {
   return (
-    <div className="my-20 flex items-center justify-center h-[85vh] bg-cover bg-center" 
+    <div className="my-12 flex items-center justify-center h-[85vh] bg-cover bg-center" 
     style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(/assests/contactus.jpeg)',}}>
       <div className='sm:w-[50vw] w-[80vw] text-center'>
         <h1 className='text-4xl text-[#272a2b] font-playfair font-semibold'>STORM MACHINERY</h1>

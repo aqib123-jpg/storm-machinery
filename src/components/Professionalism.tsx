@@ -1,15 +1,3 @@
-// import React from 'react'
-
-// const Professionalism : React.FC = () => {
-//   return (
-//     <div>Professionalism</div>
-//   )
-// }
-
-// export default Professionalism
-
-
-
 import React from 'react';
 
 const Component: React.FC = () => {
@@ -58,7 +46,7 @@ const Component: React.FC = () => {
     // </div>
 
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 px-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 px-6 my-20">
       <div className='bg-blue-500 rounded-lg items-center'>
         <img src='/assests/Proffessionalism.jpg' alt="Placeholder" className="image w-full h-full object-cover rounded-lg" />
       </div>

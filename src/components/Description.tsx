@@ -1,14 +1,3 @@
-// import React from 'react'
-
-// const Description: React.FC = () => {
-//   return (
-//     <div>Description Component</div>
-//   )
-// }
-
-// export default Description
-
-
 import React from 'react';
 import { FaArrowDown } from 'react-icons/fa';
 

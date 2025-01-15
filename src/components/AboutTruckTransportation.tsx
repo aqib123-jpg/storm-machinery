@@ -21,7 +21,7 @@ const sections: SectionProps[] = [
 
 const AboutTruckTransportation: React.FC = () => {
   return (
-    <div className="mt-24 flex flex-col lg:flex-row lg:items-start lg:space-x-8 px-8 overflow-hidden">
+    <div className="my-20 flex flex-col lg:flex-row lg:items-start lg:space-x-8 px-8 overflow-hidden">
       <div className="flex-1">
         <h1 className="text-2xl md:text-3xl font-bold mb-6 text-left text-[#272a2b] font-playfair ">
           ABOUT TRUCK TRANSPORTATION

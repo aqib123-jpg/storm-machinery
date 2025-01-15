@@ -188,7 +188,7 @@ const BrandSlider: React.FC = () => {
   
 
   return (
-    <div className="py-10 px-7">
+    <div className="py-10 px-7 my-20">
       <Slider {...settings}>
         {brands.map((brand) => (
           <div key={brand.id} className="px-4">

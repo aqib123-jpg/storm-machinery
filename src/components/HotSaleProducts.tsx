@@ -16,7 +16,7 @@ const ProductGallery: React.FC = () => {
     },
   ];
   return (
-    <div className="p-8 my-12">
+    <div className="p-8 my-32">
       <h2 className="text-center text-3xl font-bold mb-8 font-playfair text-[#272a2b]">HOTS SALE PRODUCTS</h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-20">
         {products.map((product, index) => (
@@ -34,19 +34,6 @@ const ProductGallery: React.FC = () => {
               <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-[#272a2b] font-semibold">{product.title}</p>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
           // <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-6 h-[50vh]">
           //     <div className="col-span-5">
           //       <img src={product.image} alt={product.title} className="w-full h-full object-cover"/>
@@ -57,46 +44,8 @@ const ProductGallery: React.FC = () => {
           //   </div>
         ))}
       </div>
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {products.map((product, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-10 h-48">
-            <div className="bg-blue-500 grid-cols-9">
-              <img src={product.image} alt={product.title} className="w-full h-full object-cover"/>
-            </div>
-            <div className="flex items-center justify-center bg-gray-200 w-fit px-2 grid-cols-1">
-              <p className="font-medium transform -rotate-90 text-center whitespace-nowrap overflow-hidden">
-                {product.title}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div> */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
-          {products.map((product, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-10 h-[50vh]">
-              <div className="col-span-9">
-                <img src={product.image} alt={product.title} className="w-full h-full object-contain"/>
-              </div>
-              <div className="col-span-1 flex items-center justify-center bg-red-500">
-                <p className="font-medium transform -rotate-90 text-center">HOWO 8X4 DUMP TRUCK</p>
-              </div>
-            </div>
-            // <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-10 h-[50vh]">
-            //   <div className="col-span-9">
-            //     <img src={product.image} alt={product.title} className="w-full h-full object-cover"/>
-            //   </div>
-            //   <div className="col-span-1 flex items-center justify-center bg-gray-100">
-            //     <p className="font-medium transform -rotate-90 text-center text-sm tracking-wide">{product.title}</p>
-            //   </div>
-            // </div>
-          ))}
-      </div> */}
     </div>
   );
 };
 
 export default ProductGallery;
-
-// {/* <div className="col-span-1 flex items-center justify-center bg-red-500">
-//                 <p className="font-medium transform -rotate-90 text-center whitespace-nowrap overflow-hidden">HOWO 8X4 DUMP TRUCK</p>
-//               </div> */}

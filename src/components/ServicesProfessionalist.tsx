@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServicesProfessionalism: React.FC = () => {
   return (
-    <div className="my-20 grid grid-cols-1 lg:grid-cols-2 gap-16 px-6">
+    <div className="my-32 grid grid-cols-1 lg:grid-cols-2 gap-16 px-6">
       <div className='bg-blue-500 rounded-lg items-center'>
         <img src='/assests/professionalistPicForServices.jpeg' alt="Placeholder" className="image w-full h-full object-cover rounded-lg" />
       </div>
