@@ -1,10 +1,10 @@
 import React from 'react'
-import Description from '../components/Description.tsx';
-import Refurbishment from '../components/Refurbishment.tsx';
-import HotSaleProducts from '../components/HotSaleProducts.tsx';
-import AboutTruckTransportation from '../components/AboutTruckTransportation.tsx';
-import ContactUs from '../components/ContactUs.tsx';
-import AboveFooter from '../components/AboveFooter.tsx';
+import Description from '../components/Home/Description.tsx';
+import Refurbishment from '../components/Home/Refurbishment.tsx';
+import HotSaleProducts from '../components/Common_Pages/HotSaleProducts.tsx';
+import AboutTruckTransportation from '../components/Home/AboutTruckTransportation.tsx';
+import ContactUs from '../components/Home/ContactUs.tsx';
+import AboveFooter from '../components/Common_Pages/AboveFooter.tsx';
 
 const Home: React.FC = () => {
   return (
