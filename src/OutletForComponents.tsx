@@ -9,6 +9,7 @@ import Contact from './pages/Contact.tsx';
 import Services from './pages/Services.tsx';
 import Faq from './pages/Faq.tsx';
 import Error404 from './pages/Error404.tsx';
+import SpecificProductDetail from './pages/SpecificProductDetail.tsx';
 
 export const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
             {
                 path:'product',
                 element:<Product/>,
+            },
+            {
+                path:'/product/id',
+                element:<SpecificProductDetail/>,
             },
             {
                 path:'services',

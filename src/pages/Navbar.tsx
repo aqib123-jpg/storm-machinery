@@ -277,7 +277,7 @@ const Navbar: React.FC = () => {
       ) : (
         <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
           <div className="flex xs:flex-row flex-col items-center space-x-0 xs:space-x-2 space-y-2 xs:space-y-0">
-            <img src='/assests/website-logo/BrandLogo.png' alt="Logo" className="h-16 w-auto" />
+            <Link to='/'><img src='/assests/website-logo/BrandLogo.png' alt="Logo" className="h-16 w-auto" /></Link>
             <h1 className="font-playfair text-3xl text-[#272A2B] font-bold">TRUCK EXPORT</h1>
           </div>
           {isWideScreen ? (

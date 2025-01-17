@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaLongArrowAltDown, FaLongArrowAltRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CardComponent:React.FC = () => {
     const products = [
@@ -76,7 +77,7 @@ const CardComponent:React.FC = () => {
                 ))}
             </div> */}
             
-            <div className="flex flex-wrap gap-5 justify-center bg-white bg-opacity-70">
+            <div className="flex flex-wrap gap-5 justify-center bg-white bg-opacity-70 ">
                 {products.slice().reverse().map((product) => (
                     <div key={product.id} className="mt-8 mb-8 w-[276px] h-[388px] border border-gray-200 rounded-lg shadow-md overflow-hidden relative group">
                     <div className="relative w-full h-[70%]">
@@ -84,19 +85,12 @@ const CardComponent:React.FC = () => {
                         <img src={product.image2} alt={product.name} className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                     </div>
                     {/* Description Section */}
-                    <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-[#FFFFFF]">
-                        <h4 className="text-[#272a2b] font-playfair text-lg">{product.name}</h4>
-                        {/* <p className="absolute bottom-[-40px] left-0 w-full text-center text-sm text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"> */}
-                        
-                        {/* <p className="absolute left-0 w-full text-center text-sm text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        Show More <FaLongArrowAltRight/>
-                        </p> */}
-
+                    <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-[#FFFFFF] cursor-pointer">
+                        <Link to='/product/id'><h4 className="text-[#272a2b] font-playfair text-lg">{product.name}</h4>
                         <div className="flex gap-2 my-5 text-sm text-[#4b4c4c] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <p className='font-inter font-semibold'>Read More</p> 
                             <span className='text-xl m-0 p-0 flex justify-center items-center'><FaLongArrowAltRight/></span>
-                        {/* </div> */}
-                        </div>
+                        </div></Link>
                     </div>
                     </div>
                 ))}

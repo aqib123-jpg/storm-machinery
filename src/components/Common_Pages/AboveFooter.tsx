@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 
 const FooterTop: React.FC = () => {
   return (
@@ -16,12 +16,13 @@ const FooterTop: React.FC = () => {
       <div className="w-full md:w-1/3 text-center md:text-left">
         <h3 className="text-2xl font-semibold mb-4 font-playfair">STORM MACHINERY</h3>
         <ul className="space-y-4 text-[#4b4c4c] font-inter">
-          <li><Link to="/" className="hover:text-blue-500">Home</Link></li>
-          <li><Link to="/about" className="hover:text-blue-500">About</Link></li>
-          <li><Link to="/product" className="hover:text-blue-500">Product</Link></li>
-          <li><Link to="/services" className="hover:text-blue-500">Services</Link></li>
-          <li><Link to="/contact" className="hover:text-blue-500">Contact</Link></li>
-          <li><Link to="/faq" className="hover:text-blue-500">FAQ</Link></li>
+          <li><NavLink to='/' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Home</NavLink></li>
+          {/* <li><Link to="/" className="hover:text-blue-500">Home</Link></li> */}
+          <li><NavLink to="/about" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>About</NavLink></li>
+          <li><NavLink to="/product" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Product</NavLink></li>
+          <li><NavLink to="/services" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Services</NavLink></li>
+          <li><NavLink to="/contact" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Contact</NavLink></li>
+          <li><NavLink to="/faq" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>FAQ</NavLink></li>
         </ul>
       </div>
     </div>
