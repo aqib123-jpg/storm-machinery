@@ -31,7 +31,7 @@ const ProductGallery: React.FC = () => {
               <img src={product.image} alt={product.title} className="h-full w-full object-cover"/>
             </div>
             <div className="flex items-center justify-center rounded-r-lg">
-              <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-[#272a2b] font-semibold">{product.title}</p>
+              <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-[#272a2b] font-semibold text-xs xs:text-sm">{product.title}</p>
             </div>
           </div>
           // <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden grid grid-cols-6 h-[50vh]">
