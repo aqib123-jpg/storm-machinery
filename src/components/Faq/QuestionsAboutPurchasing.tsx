@@ -65,8 +65,12 @@ const FAQPurchasing: React.FC = () => {
       <div className="flex-[3] max-w-lg mx-auto ">
         <form className="bg-[#2596BE] text-[#fff] p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4 font-playfair">If you are interested, please contact us</h2>
-          <label htmlFor="name" className="block mb-2 font-inter">Your Name</label>
+          <label htmlFor="name" className="block mb-2 font-inter">Name <span className="text-red-500 font-bold"> *</span></label>
           <input type="text" id="name" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your name"/>
+
+          <label htmlFor="name" className="block mb-2 font-inter">Email <span className="text-red-500 font-bold"> *</span></label>
+          <input type="email" id="email" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your email"/>
+
           <label htmlFor="whatsapp" className="block mb-2 font-inter">WhatsApp <span className="text-red-500 font-bold"> *</span></label>
           <input type="text" id="whatsapp" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your WhatsApp number"/>
           <label htmlFor="message" className="block mb-2 font-inter">Message <span className="text-red-500 font-bold"> *</span></label>
