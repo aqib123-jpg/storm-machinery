@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,FormEvent } from "react";
+import { toast } from "react-toastify";
+
 
 interface FAQItemProps {
   title: string;
   content: string;
   isOpen: boolean;
   onToggle: () => void;
+}
+
+interface formDataType {
+  name : string,
+  email : string , 
+  whatsapp : number | string,
+  message : string,
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ title, content, isOpen, onToggle }) => {
@@ -22,6 +31,54 @@ const FAQItem: React.FC<FAQItemProps> = ({ title, content, isOpen, onToggle }) =
 };
 
 const FAQPurchasing: React.FC = () => {
+  const [loading,updateLoading]=useState<boolean>(false);
+  const [formData,setFormData]=useState<formDataType>({
+    name     : '',
+    email    : '',
+    whatsapp : '',
+    message  : ''
+  });
+
+
+  const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    updateLoading(true);  
+    try {
+      console.log('will send request soon');
+      const response = await fetch("http://localhost:5000/send-mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        toast.success("Email sent successfully!");
+      } else {
+        toast.error("Error sending email.");
+      }
+    } catch (error: any) {  
+      toast.error("Error: " + (error?.message || error));
+    } finally {
+      updateLoading(false);
+      setFormData({
+        name: "",
+        whatsapp: "",
+        email: "",
+        message: "",
+      });
+    }
+  };
+
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
   
   const toggleAnswer = (index: number) => {
@@ -63,18 +120,19 @@ const FAQPurchasing: React.FC = () => {
       </div>
 
       <div className="flex-[3] max-w-lg mx-auto ">
-        <form className="bg-[#2596BE] text-[#fff] p-6 rounded-lg shadow-md">
+        <form className="bg-[#2596BE] text-[#fff] p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
           <h2 className="text-xl font-semibold mb-4 font-playfair">If you are interested, please contact us</h2>
           <label htmlFor="name" className="block mb-2 font-inter">Name <span className="text-red-500 font-bold"> *</span></label>
-          <input type="text" id="name" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your name"/>
+          <input type="text" name="name" id="name" required value={formData.name} className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your name" onChange={handleChange}/>
 
           <label htmlFor="name" className="block mb-2 font-inter">Email <span className="text-red-500 font-bold"> *</span></label>
-          <input type="email" id="email" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your email"/>
+          <input type="email" name="email" id="email" required value={formData.email} className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your email" onChange={handleChange}/>
 
           <label htmlFor="whatsapp" className="block mb-2 font-inter">WhatsApp <span className="text-red-500 font-bold"> *</span></label>
-          <input type="text" id="whatsapp" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your WhatsApp number"/>
+          <input type="text" name="whatsapp" id="whatsapp" required value={formData.whatsapp} className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="Enter your WhatsApp number" onChange={handleChange}/>
           <label htmlFor="message" className="block mb-2 font-inter">Message <span className="text-red-500 font-bold"> *</span></label>
-          <textarea id="message" required className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="What type of truck do you want?"/>
+          <textarea id="message" name="message" required value={formData.message} className="w-full p-3 rounded-md bg-blue-400 placeholder-blue-200 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300" placeholder="What type of truck do you want?" onChange={handleChange}/>
+          {loading && <p className="text-center">Processing your request...</p>}
           <button type="submit" className="w-full p-3 bg-[#272A2B] rounded-md hover:bg-gray-700 transition font-inter">Send Message</button>
         </form>
       </div>
