@@ -7,9 +7,16 @@ interface InfoItem {
 
 const AdditionalInfo: React.FC = () => {
   const info: InfoItem[] = [
+    { label: 'Price' , value: '150$'},
+    { label: 'Condition' , value: 'Used'},
     { label: 'Weight', value: '14800 kg' },
     { label: 'Dimensions', value: '1160 × 250 × 320 cm' },
     { label: 'Color', value: 'customized' },
+    { label: 'Fuel Type' , value: 'Diesel'},
+    { label: 'Transmission Type' , value: 'Semi-Automatic'},
+    { label: 'Engine Capacity' , value: '2000cc'},
+    { label: ' Seating Capacity' , value: '5 Seater'},
+    { label: 'Warranty' , value: '3 Years'},
   ];
 
   return (

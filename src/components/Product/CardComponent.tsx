@@ -3,6 +3,7 @@ import { FaLongArrowAltDown, FaLongArrowAltRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const CardComponent:React.FC = () => {
+    const filters: Array<string>=['Sort By Price : Low to High','Sort By Price : High to Low','Sort by Companay Name','Sort By Manufacturing Year'];
     const products = [
         { 
           id: 1, 
@@ -118,15 +119,21 @@ const CardComponent:React.FC = () => {
             <h5 className='font-inter text-[#393939]'>首页 / Products</h5>
         </div>
         <div>
-            <div className='flex justify-between px-5'>
+            <div className='flex justify-between px-2 xs:px-5'>
               <span className='font-inter text-[#4b4c4c]'>Showing all 9 results</span>
               {/* <select className="border-none border-4 border-black focus:outline-none focus:border-blue-500 bg-transparent text-base p-1"> */}
               <select className="border-b border-gray-300 focus:outline-none focus:border-gray-500 bg-transparent text-[#272a2b] font-semibold font-inter p-2 text-base">
-                <option value="">Sort By Price : Low to High</option>
+                {/* <option value="">Sort By Price : Low to High</option>
                 <option value="">Sort By Price : High to Low</option>
                 <option value="">Heavy Vehicles</option>
                 <option value="">Cars</option>
-                <option value="">Bikes</option>
+                <option value="">Bikes</option> */}
+                {
+                  (filters).map((value,key) => 
+                  (
+                    <option key={key} value={value}>{value}</option>
+                  ))
+                }
               </select>
 
             </div>
