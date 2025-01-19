@@ -16,6 +16,7 @@ const AdditionalInfo: React.FC = () => {
     { label: 'Transmission Type' , value: 'Semi-Automatic'},
     { label: 'Engine Capacity' , value: '2000cc'},
     { label: ' Seating Capacity' , value: '5 Seater'},
+    {label: 'Model Year' , value: '2015'},
     { label: 'Warranty' , value: '3 Years'},
   ];
 
