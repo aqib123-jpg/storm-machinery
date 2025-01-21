@@ -92,18 +92,59 @@
 import React, { useState, useEffect } from 'react';
 import HamburgerOptions from './HamburgerOptions.tsx';
 // import { IoIosCloseCircle } from 'react-icons/io';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
+//can be deleted
+interface Truck {
+  ID: number;
+  NAME: string;
+}
+//can be deleted
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const [isWideScreen, setIsWideScreen] = useState(window.innerWidth >= 1024);
-  
-  //can be deleted
   const [isSearchOpen, setIsSearchOpen] = useState(false); // Manage search input visibility
+  
+  
   //can be deleted
-  
-  
+  const [searchQuery, setSearchQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<Truck[]>([]);
+  const [filteredSuggestions, setFilteredSuggestions] = useState<Truck[]>([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const fetchTruckNames = async () => {
+      try {
+        const response = await axios.get<Truck[]>("http://localhost:4500/api/truckNames");
+        setSuggestions(response.data);
+      } catch (err) {
+        alert("Unable to fetch truck names.");
+      }
+    };
+
+    fetchTruckNames();
+  }, []);
+
+  // Filter suggestions based on the search query
+  useEffect(() => {
+    if (searchQuery.trim() === "") {
+      setFilteredSuggestions([]);
+    } else {
+      const filtered = suggestions.filter((truck) =>
+        truck.NAME.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredSuggestions(filtered);
+    }
+  }, [searchQuery, suggestions]);
+
+  const handleSuggestionClick = (id: number) => {
+    setIsSearchOpen(false); // Close search modal
+    setSearchQuery('');
+    navigate(`/product/${id}`); // Redirect to the product page
+  };
+  //can be deleted
+
   const handleResize = () => {
     setIsWideScreen(window.innerWidth >= 1024);
   };
@@ -254,22 +295,34 @@ const Navbar: React.FC = () => {
   //     </nav>}
   // );
 
+
+
+
   return (
     <>
       { isSearchOpen ? (
+        // <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50">
+        //     <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-2/3 p-4 text-xl rounded-lg shadow-lg focus:outline-none" />
+        //     <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-2xl font-bold">✖</button>
+        // </div>
         <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="w-2/3 p-4 text-xl rounded-lg shadow-lg focus:outline-none"
-          />
-          <button
-            onClick={() => setIsSearchOpen(false)}
-            className="absolute top-4 right-4 text-white text-2xl font-bold"
-          >
-            ✖
-          </button>
+          <div className="bg-white p-6 rounded-lg shadow-lg w-2/3 max-w-2xl">
+            <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full p-4 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+            <div className="mt-4 space-y-2">
+              {filteredSuggestions.map((truck) => (
+                <div key={truck.ID} onClick={() => handleSuggestionClick(truck.ID)} className="p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition">{truck.NAME}</div>
+              ))}
+              {filteredSuggestions.length === 0 && searchQuery.trim() && (
+                <div className="p-3 text-gray-500 text-center bg-gray-50 rounded-lg">
+                  No results found
+                </div>
+              )}
+            </div>
+          </div>
+
+          <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-3xl font-bold hover:scale-110 transition">✖</button>
         </div>
+
       ) : 
 
       (isMenuOpen && !isWideScreen) ? (
@@ -283,13 +336,6 @@ const Navbar: React.FC = () => {
           {isWideScreen ? (
             <div>
               <ul className="hidden md:flex items-center space-x-8 text-[18px] font-inter">
-                {/* <li><Link to='/' className="text-blue-500 transition duration-300">Home</Link></li>
-                <li><Link to='/about' className="hover:text-blue-500 transition duration-300">About</Link></li>
-                <li><Link to='/product' className="hover:text-blue-500 transition duration-300">Product</Link></li>
-                <li><Link to='/services' className="hover:text-blue-500 transition duration-300">Services</Link></li>
-                <li><Link to='/contact' className="hover:text-blue-500 transition duration-300">Contact</Link></li>
-                <li><Link to='/faq' className="hover:text-blue-500 transition duration-300">FAQ</Link></li> */}
-
                 <li><NavLink to='/' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Home</NavLink></li>
                 <li><NavLink to='/about' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>About</NavLink></li>
                 <li><NavLink to='/product' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Product</NavLink></li>
