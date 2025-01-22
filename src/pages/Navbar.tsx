@@ -141,6 +141,7 @@ const Navbar: React.FC = () => {
   const handleSuggestionClick = (id: number) => {
     setIsSearchOpen(false); // Close search modal
     setSearchQuery('');
+    setIsMenuOpen(false);
     navigate(`/product/${id}`); // Redirect to the product page
   };
   //can be deleted
