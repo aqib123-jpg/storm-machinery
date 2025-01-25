@@ -73,7 +73,7 @@ const ProductAdditionalInfo: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-6">
         <div className="space-y-2">
             <div className="relative lg:h-[75vh] md:h-[50vh] overflow-hidden" onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <img src={currentPic} alt="Main Product" className={`w-full h-full object-cover transition-transform duration-300 ${ isHovering ? "scale-150" : "scale-100"}`} style={{ transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,}}/>
+                <img src={currentPic} alt="Main Product" className={`w-full h-full object-fit transition-transform duration-300 ${ isHovering ? "scale-150" : "scale-100"}`} style={{ transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,}}/>
                 <div className="absolute top-2 right-2 p-2 rounded-full cursor-pointer bg-white">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11 19a8 8 0 100-16 8 8 0 000 16zm7-2l4 4" />
@@ -99,7 +99,7 @@ const ProductAdditionalInfo: React.FC = () => {
                     key={index}
                     src={img.IMAGE_PATH}
                     alt={`Thumbnail ${index + 1}`}
-                    className={`w-20 h-20 rounded-lg cursor-pointer transition-transform duration-300 hover:scale-110 ${ (currentPic == img.IMAGE_PATH) ? "" : "opacity-50"}`}
+                    className={`md:w-20 md:h-20 h-12 w-12 rounded-lg cursor-pointer transition-transform duration-300 hover:scale-110 ${ (currentPic == img.IMAGE_PATH) ? "" : "opacity-50"}`}
                     onClick={() => updatePic(img.IMAGE_PATH)}
                     />
                 )

@@ -302,28 +302,37 @@ const Navbar: React.FC = () => {
   return (
     <>
       { isSearchOpen ? (
-        // <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50">
-        //     <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-2/3 p-4 text-xl rounded-lg shadow-lg focus:outline-none" />
-        //     <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-2xl font-bold">✖</button>
+        // <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50 ">
+        //   <div className="bg-white p-6 rounded-lg shadow-lg w-2/3 max-w-2xl">
+        //     <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full p-4 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        //     <div className="mt-4 space-y-2">
+        //       {filteredSuggestions.map((truck) => (
+        //         <div key={truck.ID} onClick={() => handleSuggestionClick(truck.ID)} className="p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition">{truck.NAME}</div>
+        //       ))}
+        //       {filteredSuggestions.length === 0 && searchQuery.trim() && (
+        //         <div className="p-3 text-gray-500 text-center bg-gray-50 rounded-lg">
+        //           No results found
+        //         </div>
+        //       )}
+        //     </div>
+        //   </div>
+        //   <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-3xl font-bold hover:scale-110 transition">✖</button>
         // </div>
+
         <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg shadow-lg w-2/3 max-w-2xl">
             <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full p-4 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"/>
-            <div className="mt-4 space-y-2">
+            <div className="mt-4 space-y-2 overflow-y-auto" style={{ maxHeight: "300px" }}>
               {filteredSuggestions.map((truck) => (
                 <div key={truck.ID} onClick={() => handleSuggestionClick(truck.ID)} className="p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition">{truck.NAME}</div>
               ))}
               {filteredSuggestions.length === 0 && searchQuery.trim() && (
-                <div className="p-3 text-gray-500 text-center bg-gray-50 rounded-lg">
-                  No results found
-                </div>
+                <div className="p-3 text-gray-500 text-center bg-gray-50 rounded-lg">No results found</div>
               )}
             </div>
           </div>
-
           <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-3xl font-bold hover:scale-110 transition">✖</button>
         </div>
-
       ) : 
 
       (isMenuOpen && !isWideScreen) ? (

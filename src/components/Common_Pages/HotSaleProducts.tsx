@@ -22,7 +22,7 @@ const ProductGallery: React.FC = () => {
         {products.map((product, index) => (
           <div key={index} className="overflow-hidden grid grid-cols-10 xl:h-[55vh] lg:h-[45vh] md:h-[60vh] ">
             <div className="col-span-9 rounded-lg overflow-hidden">
-              <img src={product.image} alt={product.title} className="h-full w-full object-cover"/>
+              <img src={product.image} alt={product.title} className="h-full w-full object-fit"/>
             </div>
             <div className="flex items-center justify-center rounded-r-lg">
               <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-[#272a2b] font-semibold text-xs xs:text-sm">{product.title}</p>

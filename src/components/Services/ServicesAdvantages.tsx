@@ -26,9 +26,9 @@ const ServicesAdvantages: React.FC = () => {
       </div> */}
       <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-9">
         {products.map((product, index) => (
-          <div key={index} className="rounded-lg xl:h-[55vh] lg:h-[45vh] md:h-[60vh]">
+          <div key={index} className="rounded-lg xl:h-[55vh] lg:h-[45vh] md:h-[40vh]">
             {/* <div className="col-span-9 rounded-lg overflow-hidden"> */}
-              <img src={product.image} className="h-full w-full object-cover rounded-lg"/>
+              <img src={product.image} className="h-full w-full object-fit rounded-lg"/>
             </div>
         //   </div>
         ))}
