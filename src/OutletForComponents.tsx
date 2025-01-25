@@ -10,6 +10,9 @@ import Services from './pages/Services.tsx';
 import Faq from './pages/Faq.tsx';
 import Error404 from './pages/Error404.tsx';
 import SpecificProductDetail from './pages/SpecificProductDetail.tsx';
+import AdminPanel from './components/Admin_Dashboard/AdminDashboard.tsx';
+import AddUser from './components/Admin_Dashboard/AddUser.tsx';
+import AddProduct from './components/Admin_Dashboard/AddProduct.tsx';
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +47,18 @@ export const router = createBrowserRouter([
             {
                 path:'faq',
                 element:<Faq/>,
+            },
+            {
+                path: '/admin',
+                element:<AdminPanel/>
+            },
+            {
+                path: '/admin/addUser',
+                element:<AddUser/>
+            },
+            {
+                path: '/admin/addProduct',
+                element:<AddProduct/>
             },
             {
                 path:'*',

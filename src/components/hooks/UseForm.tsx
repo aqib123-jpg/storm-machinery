@@ -13,29 +13,6 @@ export const useForm = (initialState: Record<string, string>, endpoint: string) 
     }));
   };
 
-  // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-
-  //   try {
-  //     const response = await fetch(endpoint, {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     if (response.ok) {
-  //       toast.success("Email sent successfully!");
-  //     } else {
-  //       toast.error("Error sending email.");
-  //     }
-  //   } catch (error: any) {
-  //     toast.error("Error: " + (error?.message || error));
-  //   } finally {
-  //     setLoading(false);
-  //     setFormData(initialState);
-  //   }
-  // };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -62,7 +39,6 @@ export const useForm = (initialState: Record<string, string>, endpoint: string) 
       setFormData(initialState);
     }
   };
-  
 
   return { loading, formData, handleChange, handleSubmit };
 };
