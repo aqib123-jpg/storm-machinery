@@ -32,8 +32,8 @@ const CardComponent:React.FC = () => {
             {products.slice().reverse().map((product) => (
                 <div key={product.id} className="md:my-8 w-[276px] h-[388px] border border-gray-200 rounded-lg shadow-md overflow-hidden relative group">
                     <div className="relative w-full h-[70%]">
-                        <img src={product.image1} alt={product.name} className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 group-hover:opacity-0" />
-                        <img src={product.image2} alt={product.name} className="absolute top-0 left-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                        <img src={product.image1} alt={product.name} className="absolute top-0 left-0 w-full h-full object-fit transition-opacity duration-700 group-hover:opacity-0" />
+                        <img src={product.image2} alt={product.name} className="absolute top-0 left-0 w-full h-full object-fit opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                     </div>
                     <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-[#FFFFFF] cursor-pointer">
                         <Link to='/product/id'><h4 className="text-[#272a2b] font-playfair text-lg">{product.name}</h4>

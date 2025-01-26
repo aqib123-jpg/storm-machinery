@@ -61,19 +61,23 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 interface Truck {
-  NAME: string;
-  PRICE: number | string;
-  COMPANY: string;
-  CONDITION_OF_TRUCK: string;
-  WEIGHT: number | string;
-  DIMENSIONS: string;
-  COLOR: string;
-  FUEL_TYPE: string;
-  TRANSMISSION_TYPE: string;
-  ENGINE_CAPACITY: number | string;
-  SEATING_CAPACITY: number | string;
-  MODEL_YEAR: number | string;
-  WARRANTY: number | string;
+  NAME?: string,
+  PRICE?: string,
+  CONDITION_OF_TRUCK: string,
+  BRAND: string,
+  YEAR: string,
+  BODY: string,
+  AXLE : string,
+  MILEAGE: string,
+  PRODUCTION_PERIOD: string,
+  ENGINE_TYPE: string,
+  MODEL : string,
+  COLOR : string,
+  TRANSMISSION_TYPE?: string,
+  SEATING_CAPACITY?: string,
+  ENGINE_CAPACITY: string;
+  WARRANTY?: string,
+  DESCRIPTION?: string,
 }
 
 const AdditionalInfo: React.FC = () => {
@@ -107,16 +111,18 @@ const AdditionalInfo: React.FC = () => {
       </h2>
       <table className="w-full border-collapse">
         <tbody>
-          {Object.entries(truck).map(([key, value], index) => (
-            <tr key={index} className="border-b border-gray-300">
-              <td className="w-1/4 p-2 text-base font-inter font-bold text-left text-[#4b4c4c]">
-                {key.replace(/_/g, " ")} {/* Replace underscores with spaces */}
-              </td>
-              <td className="w-3/4 p-2 text-left text-[#4b4c4c] text-base font-inter">
-                {value}
-              </td>
-            </tr>
-          ))}
+          {Object.entries(truck)
+            .filter(([key, value]) => value !== null && value !== undefined && value !== "") // Filter keys with non-empty values
+            .map(([key, value], index) => (
+              <tr key={index} className="border-b border-gray-300">
+                <td className="w-2/5 p-2 text-base font-inter font-bold text-left text-[#4b4c4c]">
+                  {key.replace(/_/g, " ")}
+                </td>
+                <td className="w-3/5 p-2 text-left text-[#4b4c4c] text-base font-inter">
+                  {value}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -215,7 +215,7 @@ interface Truck {
  ID:string, NAME: string,IMAGE1 : string , IMAGE2: string;
 }
 // const filters: Array<string>=['Howo','Honda','Suzuki','Volvo','Toyota','Diesel','Gasoline','Automatic','Semi-automatic','Manual','Sort By Prices','Sort By Manufacturing Year'];
-const filters: Array<string>=['Mercedes','Scania','Volvo','Sinotruk','Diesel','Gasoline','Automatic','Semi-automatic','Manual','new','used','Sort By Prices','Sort By Manufacturing Year','Sort By Warranty'];
+const filters: Array<string>=['new','used','damaged','manual','automatic','semiautomatic','axle','diesel','gasoline','electric','CNG','Sort By Prices','Sort By Manufacturing Year','Sort By Warranty'];
 
 
 
@@ -346,18 +346,60 @@ const CardComponent: React.FC = () => {
   //   }
   // };
 
+  
+  //very very important
+  // const fetchData = async () => {
+  //   try {
+  //     const queryParams:Array<string> = [];
+  //     if (selectedItems.includes('Sort By Prices')) {
+  //       queryParams.push('sortBy=Prices');
+  //     }
+  //     if (selectedItems.includes('Sort By Manufacturing Year')) {
+  //       queryParams.push('sortBy=ManufacturingYear');
+  //     }
+  //     if (selectedItems.includes('Sort By Warranty')) {
+  //       queryParams.push('sortBy=warranty');
+  //     }
+  //     if (selectedItems.includes('axle')) {
+  //       queryParams.push('sortBy=axle');
+  //     }
+  //     if (selectedItems.includes('Diesel')) {
+  //       queryParams.push('engineType=Diesel');
+  //     } else if (selectedItems.includes('Gasoline')) {
+  //       queryParams.push('engineType=Gasoline');
+  //     } else if (selectedItems.includes('electric')) {
+  //       queryParams.push('engineType=electric');
+  //     } else if (selectedItems.includes('CNG')) {
+  //       queryParams.push('engineType=CNG');
+  //     }
+  //     if (selectedItems.includes('Automatic')) {
+  //       queryParams.push('transmissionType=Automatic');
+  //     } else if (selectedItems.includes('Semi-automatic')) {
+  //       queryParams.push('transmissionType=Semi-automatic');
+  //     } else if (selectedItems.includes('Manual')) {
+  //       queryParams.push('transmissionType=Manual');
+  //     }
+  //     if (selectedItems.includes('new')) {
+  //       queryParams.push('conditionOfTruck=new');
+  //     } else if (selectedItems.includes('used')) {
+  //       queryParams.push('conditionOfTruck=used');
+  //     }
+  
+  //     const queryString = queryParams.length ? `?${queryParams.join('&')}` : '';
+  //     const response = await axios.get(`http://localhost:4500/api/trucks/names${queryString}`);
+  //     setTruckNames(response.data);
+  //     setLength(response.data.length);
+  //   } catch (error) {
+  //     console.error('Error fetching trucks:', error);
+  //   }
+  // };
+  //very very important
+
+
   const fetchData = async () => {
     try {
-      const queryParams:Array<string> = [];
-  
-      // Add company filters
-      const companies = ['Mercedes', 'Scania', 'Volvo', 'Sinotruk'];
-      const selectedCompany = selectedItems.find(item => companies.includes(item));
-      if (selectedCompany) {
-        queryParams.push(`company=${selectedCompany}`);
-      }
-  
-      // Existing filters
+      const queryParams: Array<string> = [];
+      // Handling sorting criteria
       if (selectedItems.includes('Sort By Prices')) {
         queryParams.push('sortBy=Prices');
       }
@@ -367,11 +409,22 @@ const CardComponent: React.FC = () => {
       if (selectedItems.includes('Sort By Warranty')) {
         queryParams.push('sortBy=warranty');
       }
-      if (selectedItems.includes('Diesel')) {
-        queryParams.push('fuelType=Diesel');
-      } else if (selectedItems.includes('Gasoline')) {
-        queryParams.push('fuelType=Gasoline');
+      if (selectedItems.includes('axle')) {
+        queryParams.push('sortBy=axle');
       }
+      
+      // Handling engineType filters
+      if (selectedItems.includes('Diesel')) {
+        queryParams.push('engineType=Diesel');
+      } else if (selectedItems.includes('Gasoline')) {
+        queryParams.push('engineType=Gasoline');
+      } else if (selectedItems.includes('electric')) {
+        queryParams.push('engineType=electric');
+      } else if (selectedItems.includes('CNG')) {
+        queryParams.push('engineType=CNG');
+      }
+      
+      // Handling transmissionType filters
       if (selectedItems.includes('Automatic')) {
         queryParams.push('transmissionType=Automatic');
       } else if (selectedItems.includes('Semi-automatic')) {
@@ -379,12 +432,16 @@ const CardComponent: React.FC = () => {
       } else if (selectedItems.includes('Manual')) {
         queryParams.push('transmissionType=Manual');
       }
+      
+      // Handling conditionOfTruck filters
       if (selectedItems.includes('new')) {
         queryParams.push('conditionOfTruck=new');
       } else if (selectedItems.includes('used')) {
         queryParams.push('conditionOfTruck=used');
+      } else if (selectedItems.includes('damaged')) {
+        queryParams.push('conditionOfTruck=damaged');
       }
-  
+      
       // Create query string and fetch data
       const queryString = queryParams.length ? `?${queryParams.join('&')}` : '';
       const response = await axios.get(`http://localhost:4500/api/trucks/names${queryString}`);
@@ -432,11 +489,12 @@ const CardComponent: React.FC = () => {
               </div>
             </div>
           <div className="flex flex-wrap gap-5 justify-center bg-white bg-opacity-70 ">
-                {truckNames.map((truck) => (
+                {/* {truckNames.map((truck) => ( */}
+                { [...truckNames].reverse().map((truck) => (
                   <div key={truck.ID} className="mt-8 mb-8 w-[276px] h-[388px] border border-gray-200 rounded-lg shadow-md overflow-hidden relative group">
                     <div className="relative w-full h-[70%]">
-                        <img src={truck.IMAGE1} alt='Truck Name' className="absolute top-0 left-0 w-full h-full object-fit transition-opacity duration-700 group-hover:opacity-0" />
-                        <img src={truck.IMAGE2} alt='Truck Name' className="absolute top-0 left-0 w-full h-full object-fit opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                        <img src={`/assests/uploads/${truck.IMAGE1}`} alt='Truck Name' className="absolute top-0 left-0 w-full h-full object-fit transition-opacity duration-700 group-hover:opacity-0" />
+                        <img src={`/assests/uploads/${truck.IMAGE2}`} alt='Truck Name' className="absolute top-0 left-0 w-full h-full object-fit opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                     </div>
                     <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-[#FFFFFF] cursor-pointer">
                             <Link to={`/product/${truck.ID}`}><h4 className="text-[#272a2b] font-playfair text-xl">{truck.NAME}</h4>

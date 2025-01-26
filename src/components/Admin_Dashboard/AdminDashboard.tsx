@@ -110,7 +110,7 @@ const deleteUser = async (id: number) => {
                             <td className="border border-gray-300 px-2 py-2 text-center">{users.MESSAGE}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">
                                 <div className="flex flex-col gap-1">
-                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600">Edit</button>
+                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600" onClick={() => navigate(`/admin/updateUser/${users.ID}`)}>Edit</button>
                                     <button className="px-4 py-1 bg-red-500 text-white text-xs rounded-md hover:bg-red-600" onClick={(e) => deleteUser(users.ID)}>Delete</button>
                                 </div>
                             </td>
@@ -131,7 +131,8 @@ const deleteUser = async (id: number) => {
         <table className="table-auto w-full border-collapse border border-gray-300 text-sm">
             <thead>
                 <tr className="bg-gray-200">
-                <th className="border border-gray-300 px-2 py-2 text-center">Images</th>
+                <th className="border border-gray-300 px-2 py-2 text-center">Image 1</th>
+                <th className="border border-gray-300 px-2 py-2 text-center">Image 2</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Name</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Price</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Brand</th>
@@ -155,11 +156,17 @@ const deleteUser = async (id: number) => {
                 {
                     (productInfo).map((item,index) => (
                         <tr className="hover:bg-gray-50 transition" key={index}>
-                            <td className="border border-gray-300 px-2 py-2 text-center">
+                            {/* <td className="border border-gray-300 px-2 py-2 text-center">
                                 <div className="flex flex-wrap gap-2 justify-center">
                                     <img src={item.IMAGE1} alt='Truck Image1' className="w-14 h-14 rounded-lg"/>
                                     <img src={item.IMAGE2} alt='Truck Image2' className="w-14 h-14 rounded-lg"/>
                                 </div>
+                            </td> */}
+                            <td className="border border-gray-300 px-1 py-1 text-center">
+                                <div className="flex flex-wrap gap-2 justify-center"><img src={item.IMAGE1} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
+                            </td>
+                            <td className="border border-gray-300 px-1 py-1 text-center">
+                                <div className="flex flex-wrap gap-2 justify-center"><img src={item.IMAGE2} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
                             </td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.NAME}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.PRICE}$</td>
