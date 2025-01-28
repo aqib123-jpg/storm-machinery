@@ -14,6 +14,7 @@ import AdminPanel from './components/Admin_Dashboard/AdminDashboard.tsx';
 import AddUser from './components/Admin_Dashboard/AddUser.tsx';
 import AddProduct from './components/Admin_Dashboard/AddProduct.tsx';
 import EditUser from './components/Admin_Dashboard/UpdateUser.tsx';
+import UpdateProduct from './components/Admin_Dashboard/UpdateProduct.tsx';
 
 export const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
             {
                 path: '/admin/addProduct',
                 element:<AddProduct/>
+            },
+            {
+                path: '/admin/updateProduct/:id',
+                element:<UpdateProduct/>
             },
             {
                 path:'*',

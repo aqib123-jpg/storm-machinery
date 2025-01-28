@@ -62,21 +62,21 @@ import { useParams } from "react-router-dom";
 
 interface Truck {
   NAME?: string,
-  PRICE?: string,
+  PRICE?: number,
   CONDITION_OF_TRUCK: string,
   BRAND: string,
-  YEAR: string,
+  YEAR: number,
   BODY: string,
-  AXLE : string,
-  MILEAGE: string,
+  AXLE : number,
+  MILEAGE_L_PER_100KM: number,
   PRODUCTION_PERIOD: string,
   ENGINE_TYPE: string,
   MODEL : string,
   COLOR : string,
   TRANSMISSION_TYPE?: string,
-  SEATING_CAPACITY?: string,
-  ENGINE_CAPACITY: string;
-  WARRANTY?: string,
+  SEATING_CAPACITY?: number,
+  ENGINE_CAPACITY: number;
+  WARRANTY?: number,
   DESCRIPTION?: string,
 }
 

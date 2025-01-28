@@ -11,22 +11,23 @@ interface User{
 }
 
 interface Product{
+    ID     : number ,
     IMAGE1 : string,
     IMAGE2 : string,
-    NAME : string,
-    PRICE : number | string,
+    NAME? : string,
+    PRICE? : number,
     BRAND : string,
-    YEAR : number | string,
-    CONDITION : string,
-    AXLE : string,
+    YEAR : number,
+    CONDITION_OF_TRUCK : string,
+    AXLE : number,
     BODY : string,
-    MILEAGE : string,
-    PRODUCTION_PERIOD: string,
+    MILEAGE_L_PER_100KM : number,
+    PRODUCTION_PERIOD : string,
     ENGINE_TYPE :string,
-    TRANSMISSION_TYPE : string,
-    WARRANTY : string,
-    SEATING_CAPACITY  : string,
-    ENGINE_CAPACITY : string,
+    TRANSMISSION_TYPE? : string,
+    WARRANTY? : number,
+    SEATING_CAPACITY? : number,
+    ENGINE_CAPACITY? : number,
     MODEL : string,
     COLOR : string,
 }    
@@ -35,8 +36,9 @@ const AdminPanel: React.FC = () => {
   const navigate = useNavigate();
   const [userInfo, setUserInfo] = useState<User[]>([]);
 //   const userInfo : User[] = [{ID:3 ,NAME:'Aqib Rehman',EMAIL:'aqibk5867@gmail.com',WHATSAPP_NUMBER:'+923132651310',MESSAGE:'This is a simple message check to check the UIThis is a simple message check to check the UIThis is a simple message check to check the UI'},{ID:105 ,NAME:'Aqib Rehman',EMAIL:'aqibk5867@gmail.com',WHATSAPP_NUMBER:'+923132651310',MESSAGE:'This is a simple message check to check the UIThis is a simple message check to check the UIThis is a simple message check to check the UI'},{ID:89 ,NAME:'Aqib Rehman',EMAIL:'aqibk5867@gmail.com',WHATSAPP_NUMBER:'+923132651310',MESSAGE:'This is a simple message check to check the UIThis is a simple message check to check the UIThis is a simple message check to check the UI'},{ID:59 ,NAME:'Aqib Rehman',EMAIL:'aqibk5867@gmail.com',WHATSAPP_NUMBER:'+923132651310',MESSAGE:'This is a simple message check to check the UIThis is a simple message check to check the UIThis is a simple message check to check the UI'},{ID:13 ,NAME:'Aqib Rehman',EMAIL:'aqibk5867@gmail.com',WHATSAPP_NUMBER:'+923132651310',MESSAGE:'This is a simple message check to check the UIThis is a simple message check to check the UIThis is a simple message check to check the UI'}];
-  const productInfo : Product[] = [{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'},{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'},{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'}];
-  
+  // const productInfo : Product[] = [{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'},{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'},{IMAGE1:'/assests/IVECO_Stralis/first.jpg',IMAGE2:'/assests/IVECO_Stralis/second.jpg',NAME:'Truck A',PRICE: '50,000' ,BRAND:'Honda',YEAR:2024,CONDITION:'New',AXLE:'6x6',BODY:'Container Carrier',MILEAGE:'8 km/l',PRODUCTION_PERIOD:'2015-2018',ENGINE_TYPE:'Gasoline',TRANSMISSION_TYPE:'Manual',WARRANTY:'3',SEATING_CAPACITY:'4',ENGINE_CAPACITY:'2500cc',MODEL:'Cascadia',COLOR:'Blue'}];
+  const [productInfo, setProductInfo] = useState<Product[]>([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -51,8 +53,26 @@ const AdminPanel: React.FC = () => {
       }
     };
   
-    fetchData(); // Call the async function
-  }, [userInfo]); // Empty dependency array ensures this runs once on component mount
+    fetchData(); 
+  }, [userInfo]);
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4500/api/getProductInfo'); // Replace 4500 with your backend port
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data: Product[] = await response.json(); // Parse the JSON response
+        setProductInfo(data); // Store the data in state
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData(); 
+  }, [productInfo]);
   
   
 //   const deleteUser = async (id:number) => {
@@ -69,7 +89,7 @@ const AdminPanel: React.FC = () => {
 //   };
 const deleteUser = async (id: number) => {
     try {
-      const response = await fetch(`http://localhost:4500/api/deleteUsers/${id}`, {
+      const response = await fetch(`http://localhost:4500/api/deleteUser/${id}`, {
         method: 'DELETE', 
       });
       if (!response.ok) {
@@ -82,6 +102,24 @@ const deleteUser = async (id: number) => {
       console.error('Error deleting user:', error);
     }
   };
+
+  //can be deleted
+  const deleteProduct = async (id: number) => {
+    try {
+      const response = await fetch(`http://localhost:4500/api/deleteProduct/${id}`, {
+        method: 'DELETE', 
+      });
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data: Product[] = await response.json(); // Parse updated user list
+      setProductInfo(data); // Update state with the remaining users
+      toast.success('Deleted Successfully');
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+  //can be deleted
   
   return (
     <div className="min-h-screen p-4 sm:p-8">
@@ -110,7 +148,7 @@ const deleteUser = async (id: number) => {
                             <td className="border border-gray-300 px-2 py-2 text-center">{users.MESSAGE}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">
                                 <div className="flex flex-col gap-1">
-                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600" onClick={() => navigate(`/admin/updateUser/${users.ID}`)}>Edit</button>
+                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600" onClick={() => navigate(`/admin/updateUser/${users.ID}`)}>Update</button>
                                     <button className="px-4 py-1 bg-red-500 text-white text-xs rounded-md hover:bg-red-600" onClick={(e) => deleteUser(users.ID)}>Delete</button>
                                 </div>
                             </td>
@@ -162,20 +200,21 @@ const deleteUser = async (id: number) => {
                                     <img src={item.IMAGE2} alt='Truck Image2' className="w-14 h-14 rounded-lg"/>
                                 </div>
                             </td> */}
+                            {/* <td className="border border-gray-300 px-2 py-2 text-center">{item}</td> */}
                             <td className="border border-gray-300 px-1 py-1 text-center">
-                                <div className="flex flex-wrap gap-2 justify-center"><img src={item.IMAGE1} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
+                                <div className="flex flex-wrap gap-2 justify-center"><img src={`/assests/uploads/${item.IMAGE1}`} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
                             </td>
                             <td className="border border-gray-300 px-1 py-1 text-center">
-                                <div className="flex flex-wrap gap-2 justify-center"><img src={item.IMAGE2} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
+                                <div className="flex flex-wrap gap-2 justify-center"><img src={`/assests/uploads/${item.IMAGE2}`} alt='Truck Image1' className="w-12 h-12 rounded-lg"/></div>
                             </td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.NAME}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.PRICE}$</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.BRAND}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.YEAR}</td>
-                            <td className="border border-gray-300 px-2 py-2 text-center">{item.CONDITION}</td>
+                            <td className="border border-gray-300 px-2 py-2 text-center">{item.CONDITION_OF_TRUCK}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.AXLE}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.BODY}</td>
-                            <td className="border border-gray-300 px-2 py-2 text-center">{item.MILEAGE}</td>
+                            <td className="border border-gray-300 px-2 py-2 text-center">{item.MILEAGE_L_PER_100KM}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.PRODUCTION_PERIOD}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.ENGINE_TYPE}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.TRANSMISSION_TYPE}</td>
@@ -186,8 +225,8 @@ const deleteUser = async (id: number) => {
                             <td className="border border-gray-300 px-2 py-2 text-center">{item.COLOR}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">
                                 <div className="flex flex-col gap-1">
-                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600">Edit</button>
-                                    <button className="px-4 py-1 bg-red-500 text-white text-xs rounded-md hover:bg-red-600">Delete</button>
+                                    <button className="px-4 py-1 bg-blue-500 text-white text-xs rounded-md hover:bg-blue-600" onClick={() => navigate(`/admin/updateProduct/${item.ID}`)}>Update</button>
+                                    <button className="px-4 py-1 bg-red-500 text-white text-xs rounded-md hover:bg-red-600" onClick={(e) => deleteProduct(item.ID)}>Delete</button>
                                 </div>
                             </td>
                         </tr>
