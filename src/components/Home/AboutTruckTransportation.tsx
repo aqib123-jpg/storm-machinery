@@ -74,12 +74,8 @@ const AboutTruckTransportation: React.FC = () => {
           className="rounded-lg max-w-full lg:max-w-[750px] lg:max-h-[550px] object-contain md:object-cover"
         />
       </div> */}
-      <div className="flex-shrink-0 mt-8 lg:mt-0 lg:flex-2 bg-red-500 rounded-lg">
-        <img
-          src="/assests/about.jpg"
-          alt="Truck Transportation"
-          className="rounded-lg w-full h-full object-cover md:object-cover lg:max-w-[750px] lg:max-h-[550px] lg:object-contain"
-        />
+      <div className="flex-shrink-0 mt-8 lg:mt-0 lg:flex-2 rounded-lg">
+        <img src="/assests/about.jpg" alt="Truck Transportation" className="rounded-lg w-full h-full object-cover md:object-cover lg:max-w-[750px] lg:max-h-[550px] lg:object-contain"/>
       </div>
     </div>
   );

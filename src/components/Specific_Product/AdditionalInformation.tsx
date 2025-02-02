@@ -59,35 +59,36 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { TruckData } from "../../types";
 
-interface Truck {
-  NAME?: string,
-  PRICE?: number,
-  CONDITION_OF_TRUCK: string,
-  BRAND: string,
-  YEAR: number,
-  BODY: string,
-  AXLE : number,
-  MILEAGE_L_PER_100KM: number,
-  PRODUCTION_PERIOD: string,
-  ENGINE_TYPE: string,
-  MODEL : string,
-  COLOR : string,
-  TRANSMISSION_TYPE?: string,
-  SEATING_CAPACITY?: number,
-  ENGINE_CAPACITY: number;
-  WARRANTY?: number,
-  DESCRIPTION?: string,
-}
+// interface Truck {
+//   NAME?: string,
+//   PRICE?: number,
+//   CONDITION_OF_TRUCK: string,
+//   BRAND: string,
+//   YEAR: number,
+//   BODY: string,
+//   AXLE : number,
+//   MILEAGE_L_PER_100KM: number,
+//   PRODUCTION_PERIOD: string,
+//   ENGINE_TYPE: string,
+//   MODEL : string,
+//   COLOR : string,
+//   TRANSMISSION_TYPE?: string,
+//   SEATING_CAPACITY?: number,
+//   ENGINE_CAPACITY: number;
+//   WARRANTY?: number,
+//   DESCRIPTION?: string,
+// }
 
 const AdditionalInfo: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [truck, setTruck] = useState<Truck | null>(null); // State should hold a single object
+  const [truck, setTruck] = useState<TruckData | null>(null); // State should hold a single object
 
   useEffect(() => {
     const fetchTruckData = async () => {
       try {
-        const response = await axios.get<Truck>(
+        const response = await axios.get<TruckData>(
           `http://localhost:4500/api/truckDetails/${id}`
         );
         setTruck(response.data); // Set the object directly

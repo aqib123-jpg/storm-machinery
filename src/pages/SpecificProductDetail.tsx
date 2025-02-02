@@ -6,12 +6,12 @@ import AboveFooter from '../components/Common_Pages/AboveFooter.tsx'
 
 const SpecificProductDetail = () => {
   return (
-    <>
+    <div className='bg-background'>
       <ProductAdditionalInfo/>  
       <DescriptionAndAdditionalInfo/>
       <RelatedProducts/>
       <AboveFooter/>
-    </>
+    </div>
   )
 }
 

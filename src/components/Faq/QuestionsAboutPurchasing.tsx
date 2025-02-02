@@ -123,7 +123,7 @@ const FAQPurchasing: React.FC = () => {
       </div>
 
       <div className="flex-[3] max-w-lg mx-auto">
-      <form className="bg-[#2596BE] text-[#fff] p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
+      <form className="bg-background-form text-[#fff] p-6 rounded-lg shadow-md" onSubmit={handleSubmit}>
         <h2 className="text-xl font-semibold mb-4 font-playfair">If you are interested, please contact us</h2>
         <FormField id="name" name="name" value={formData.name} label="Name" placeholder="Enter your name" required onChange={handleChange} />
         <FormField id="email" name="email" type="email" value={formData.email} label="Email" placeholder="Enter your email" required onChange={handleChange} />

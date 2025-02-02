@@ -9,9 +9,9 @@ const AddUser = () => {
       "http://localhost:4500/send-mail"
     );
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-12">
+    <div className="flex flex-col items-center justify-center px-4 py-12 bg-background">
       <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">ADD USER</h2>
-      <form className="w-full max-w-md bg-blue-500 p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => handleSubmit(e)}>
+      <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => handleSubmit(e)}>
         <FormField id="name" name="name" value={formData.name} label="Name" placeholder="Enter your name" required onChange={handleChange}/>
         <FormField id="email" name="email" type="email" value={formData.email} label="Email" placeholder="Enter your email" required onChange={handleChange}/>
         <FormField id="whatsapp" name="whatsapp" value={formData.whatsapp} label="WhatsApp Number" placeholder="Enter your WhatsApp number" required onChange={handleChange} />

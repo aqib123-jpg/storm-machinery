@@ -8,9 +8,9 @@ import ServicesContactUs from '../components/Services/ServicesContactUs.tsx';
 import SalesTeam from '../components/Services/SalesTeam.tsx';
 
 const Services: React.FC = () => {
-  console.log('inside the services tag');
+  //console.log('inside the services tag');
   return (
-    <>
+    <div className='bg-background'>
       <ServicesDescription/>
       <ServicesAdvantages/>
       <ServicesProfessionalism/>
@@ -18,7 +18,7 @@ const Services: React.FC = () => {
       <SalesTeam/>
       <ServicesContactUs/>
       <AboveFooter/>
-    </>
+    </div>
   )
 }
 

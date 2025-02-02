@@ -10,7 +10,7 @@ const ProductDescription: React.FC = () => {
     {
       title: "Powerful power system",
       content:
-        "HOWO 6×4 dump trucks are usually equipped with high-performance engines that can provide sufficient horsepower and torque to ensure that the vehicle can easily cope with various road conditions, including steep slopes and soft ground, even when fully loaded.",
+        "This truck are usually equipped with high-performance engines that can provide sufficient horsepower and torque to ensure that the vehicle can easily cope with various road conditions, including steep slopes and soft ground, even when fully loaded.",
     },
     {
       title: "Strong body structure",
@@ -20,12 +20,12 @@ const ProductDescription: React.FC = () => {
     {
       title: "Excellent suspension system",
       content:
-        "In order to adapt to different road conditions and improve driving comfort, HOWO 6×4 dump trucks are equipped with advanced suspension systems. This system can effectively absorb vibrations during driving, reduce wear and tear on the vehicle, and improve driving stability.",
+        "In order to adapt to different road conditions and improve driving comfort, This Truck are equipped with advanced suspension systems. This system can effectively absorb vibrations during driving, reduce wear and tear on the vehicle, and improve driving stability.",
     },
     {
       title: "Safe and reliable braking system",
       content:
-        "Safety is the top priority in the design of dump trucks. HOWO 6×4 dump trucks are equipped with efficient braking systems, including service brakes, parking brakes, and emergency brake systems, to ensure safe braking in various situations.",
+        "Safety is the top priority in the design of dump trucks. This truck are equipped with efficient braking systems, including service brakes, parking brakes, and emergency brake systems, to ensure safe braking in various situations.",
     },
     {
       title: "Comfortable cab",
@@ -35,7 +35,7 @@ const ProductDescription: React.FC = () => {
     {
       title: "Environmental protection and energy saving",
       content:
-        "With the increasingly stringent environmental regulations, the HOWO 6×4 dump truck is also designed with environmental protection and energy saving in mind. By optimizing engine combustion efficiency and improving fuel utilization, emissions are reduced, meeting current environmental standards.",
+        "With the increasingly stringent environmental regulations, this truck is also designed with environmental protection and energy saving in mind. By optimizing engine combustion efficiency and improving fuel utilization, emissions are reduced, meeting current environmental standards.",
     },
   ];
 

@@ -400,6 +400,7 @@ const CardComponent: React.FC = () => {
   useEffect(() => {
     const filtersFromURL = getQueryParams('filters');
     setSelectedItems(filtersFromURL);
+    console.log('first : ',filtersFromURL);
   }, [location.search]);
 
   const updateQueryParams = (newFilters: string[]) => {
@@ -506,7 +507,7 @@ const CardComponent: React.FC = () => {
 
   return (
     <div className="grid grid-cols-1 gap-24 mb-20">
-      <div className="flex flex-col gap-4 justify-center bg-[#E7EAEC] h-[30vh] items-center">
+      <div className="flex flex-col gap-4 justify-center bg-background-secondary h-[30vh] items-center">
         <h1 className="text-5xl text-[#272a2b] font-playfair font-semibold">Products</h1>
         <h5 className="font-inter text-[#393939]">首页 / Products</h5>
       </div>
@@ -521,14 +522,10 @@ const CardComponent: React.FC = () => {
               </span>
             </div>
             {isOpen && (
-              <div className="absolute mt-2 w-72 bg-white border border-gray-300 rounded-lg shadow-lg z-10 p-4 right-0">
+              <div className="absolute mt-2 w-72 border border-gray-300 rounded-lg shadow-lg z-10 p-4 right-0 bg-background">
                 <div className="flex flex-wrap gap-2">
                   {filters.map((item) => (
-                    <div
-                      key={item}
-                      className={`px-3 py-1 rounded-full text-sm cursor-pointer ${
-                        selectedItems.includes(item) ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-                      }`}
+                    <div key={item} className={`px-3 py-1 rounded-full text-sm cursor-pointer ${ selectedItems.includes(item) ? 'bg-blue-500 text-white' : 'bg-background-secondary text-gray-700' }`}
                       onClick={() => toggleItemSelection(item)}
                     >
                       {item}
@@ -539,7 +536,7 @@ const CardComponent: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="flex flex-wrap gap-5 justify-center bg-white bg-opacity-70">
+        <div className="flex flex-wrap gap-5 justify-center">
           {[...truckNames].reverse().map((truck) => (
             <div
               key={truck.ID}
@@ -557,7 +554,7 @@ const CardComponent: React.FC = () => {
                   className="absolute top-0 left-0 w-full h-full object-fit opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                 />
               </div>
-              <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-[#FFFFFF] cursor-pointer">
+              <div className="relative p-5 transition-transform duration-300 ease-in-out group-hover:translate-y-[-40px] mx-2 rounded-lg bg-background cursor-pointer">
                 <Link to={`/product/${truck.ID}`}>
                   <h4 className="text-[#272a2b] font-playfair text-xl">{truck.NAME}</h4>
                   <div className="flex gap-2 my-5 text-sm text-[#4b4c4c] opacity-0 group-hover:opacity-100 transition-opacity duration-300">

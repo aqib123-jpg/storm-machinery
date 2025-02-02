@@ -79,7 +79,7 @@ const ContactForm:React.FC = () => {
 
     <div className="flex flex-col items-center justify-center py-10 px-4 my-20">
       <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">PLEASE CONTACT US</h2>
-      <form className="w-full max-w-md bg-blue-500 p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={handleSubmit}>
+      <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={handleSubmit}>
         <FormField id="name" name="name" value={formData.name} label="Your Name" placeholder="Enter your name" required onChange={handleChange}/>
         <FormField id="email" name="email" type="email" value={formData.email} label="Email" placeholder="Enter your email" required onChange={handleChange}/>
         <FormField id="whatsapp" name="whatsapp" value={formData.whatsapp} label="WhatsApp Number" placeholder="Enter your WhatsApp number" required onChange={handleChange} />

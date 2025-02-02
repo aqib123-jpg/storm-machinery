@@ -1,27 +1,29 @@
 import React, { useState, ChangeEvent } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FormFields } from '../../types';
 
 
-interface FormFields {
-  name?: string;
-  price?: number | null;
-  condition?: string;
-  brand?: string;
-  year?: number | null;
-  body?: string;
-  axle?: number | null;
-  mileage?: number | null;
-  productionPeriod: string;
-  engineType: string;
-  model: string;
-  color: string;
-  transmissionType?: string;
-  seatingCapacity?: number | null;
-  engineCapacity?: number | null;
-  warranty?: number | null; 
-  description?: string; 
-}
+// interface FormFields {
+//   name?: string;
+//   price?: number | null;
+//   condition?: string;
+//   brand?: string;
+//   year?: number | null;
+//   body?: string;
+//   axle?: number | null;
+//   mileage?: number | null;
+//   productionPeriod: string;
+//   engineType: string;
+//   model: string;
+//   color: string;
+//   transmissionType?: string;
+//   seatingCapacity?: number | null;
+//   engineCapacity?: number | null;
+//   warranty?: number | null; 
+//   description?: string; 
+// }
+
 
 const UpdateProduct: React.FC = () => {
   const [loading,setLoading]=useState<boolean>(false);
@@ -105,9 +107,9 @@ const UpdateProduct: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-12">
+    <div className="flex flex-col items-center justify-center px-4 py-12 bg-background">
       <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">Add Product</h2>
-      <form className="w-full max-w-md bg-blue-500 p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => sendData(e)} encType="multipart/form-data">
+      <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => sendData(e)} encType="multipart/form-data">
         <input type="text" name='name' value={formData.name || ''} onChange={handleInputChange} placeholder={`Name `} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
         <input type="number" name='price' value={formData.price || ''} onChange={handleInputChange} placeholder={`Price `} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
         <input type="text" name='condition' value={formData.condition || ''} onChange={handleInputChange} placeholder={`Condition new,used,damaged`} required className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>

@@ -131,51 +131,70 @@
 
 import React, { useState, ChangeEvent } from 'react';
 import { toast } from 'react-toastify';
+import { FormFields, RequiredFields } from '../../types';
 
-interface RequiredFields {
-  [key: string]: boolean;
-}
-interface FormFields {
-  name?: string;
-  price?: string;
-  condition: string;
-  brand: string;
-  year: string;
-  body: string;
-  axle: string;
-  mileage: string;
-  productionPeriod: string;
-  engineType: string;
-  model: string;
-  color: string;
-  transmissionType?: string;
-  seatingCapacity?: string;
-  engineCapacity?: string;
-  warranty?: string; 
-  description?: string; 
-}
+
+// interface RequiredFields {
+//   [key: string]: boolean;
+// }
+// interface FormFields {
+//   name?: string;
+//   price?: string;
+//   condition: string;
+//   brand: string;
+//   year: string;
+//   body: string;
+//   axle: string;
+//   mileage: string;
+//   productionPeriod: string;
+//   engineType: string;
+//   model: string;
+//   color: string;
+//   transmissionType?: string;
+//   seatingCapacity?: string;
+//   engineCapacity?: string;
+//   warranty?: string; 
+//   description?: string; 
+// }
 
 const AddProduct: React.FC = () => {
   const required: RequiredFields = {'name': false,'price': false,'condition': true,'brand': true,'year': true,'body': true,'axle': true,'mileage': true,'productionPeriod': true,'engineType': true,'model': true,'color': true,'transmissionType': false,'seatingCapacity': false,'engineCapacity': false,'warranty': false,'description': false,};
   const [loading,setLoading]=useState<boolean>(false);
   const [images, setImages] = useState<File[]>([]);
   const initialState :FormFields = {
+    // name: '',
+    // price: '',
+    // condition: '',
+    // brand: '',
+    // year: '',
+    // body: '',
+    // axle: '',
+    // mileage: '',
+    // productionPeriod: '',
+    // engineType: '',
+    // model: '',
+    // color: '',
+    // transmissionType: '',
+    // seatingCapacity: '',
+    // engineCapacity: '',
+    // warranty: '',
+    // description: '',
     name: '',
-    price: '',
+    price: null,
     condition: '',
     brand: '',
-    year: '',
+    year: null,
     body: '',
-    axle: '',
-    mileage: '',
+    axle: null,
+    mileage: null,
     productionPeriod: '',
     engineType: '',
     model: '',
     color: '',
     transmissionType: '',
-    seatingCapacity: '',
-    engineCapacity: '',
-    warranty: '',
+    seatingCapacity: null,
+    engineCapacity: null,
+    warranty: null,
     description: '',
   };
   const [formData, setFormData] = useState<FormFields>(initialState);
@@ -236,9 +255,9 @@ const AddProduct: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-12">
+    <div className="flex flex-col items-center justify-center px-4 py-12 bg-background">
       <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">Add Product</h2>
-      <form className="w-full max-w-md bg-blue-500 p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => sendData(e)} encType="multipart/form-data">
+      <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => sendData(e)} encType="multipart/form-data">
         <input type="text" name='name' value={formData.name || ''} onChange={handleInputChange} placeholder={`Name ${(required.name) ? '*' : ''}`} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
         <input type="number" name='price' value={formData.price || ''} onChange={handleInputChange} placeholder={`Price ${(required.price) ? '*' : ''}`} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
         <input type="text" name='condition' value={formData.condition || ''} onChange={handleInputChange} placeholder={`Condition ${(required.condition) ? '*' : ''} new,used,damaged`} required className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>

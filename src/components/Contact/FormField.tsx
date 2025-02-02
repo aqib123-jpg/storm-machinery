@@ -1,16 +1,17 @@
 import React from "react";
+import { FormFieldProps } from "../../types";
 
-interface FormFieldProps {
-  id: string;
-  name: string;
-  type?: string;
-  value: string;
-  placeholder: string;
-  label: string;
-  required?: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
-  isTextArea?: boolean;
-}
+// interface FormFieldProps {
+//   id: string;
+//   name: string;
+//   type?: string;
+//   value: string;
+//   placeholder: string;
+//   label: string;
+//   required?: boolean;
+//   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+//   isTextArea?: boolean;
+// }
 
 const FormField: React.FC<FormFieldProps> = ({id,name,type = "text",value,placeholder,label,required = false,onChange,isTextArea = false,}) => {
   return (

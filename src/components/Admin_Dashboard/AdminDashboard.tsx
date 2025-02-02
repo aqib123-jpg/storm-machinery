@@ -1,36 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Product, User } from "../../types";
 
-interface User{
-    ID : number,
-    NAME : string,
-    EMAIL : string,
-    WHATSAPP_NUMBER : string,
-    MESSAGE : string,
-}
+// interface User{
+//     ID : number,
+//     NAME : string,
+//     EMAIL : string,
+//     WHATSAPP_NUMBER : string,
+//     MESSAGE : string,
+// }
 
-interface Product{
-    ID     : number ,
-    IMAGE1 : string,
-    IMAGE2 : string,
-    NAME? : string,
-    PRICE? : number,
-    BRAND : string,
-    YEAR : number,
-    CONDITION_OF_TRUCK : string,
-    AXLE : number,
-    BODY : string,
-    MILEAGE_L_PER_100KM : number,
-    PRODUCTION_PERIOD : string,
-    ENGINE_TYPE :string,
-    TRANSMISSION_TYPE? : string,
-    WARRANTY? : number,
-    SEATING_CAPACITY? : number,
-    ENGINE_CAPACITY? : number,
-    MODEL : string,
-    COLOR : string,
-}    
+// interface Product{
+//     ID     : number ,
+//     IMAGE1 : string,
+//     IMAGE2 : string,
+//     NAME? : string,
+//     PRICE? : number,
+//     BRAND : string,
+//     YEAR : number,
+//     CONDITION_OF_TRUCK : string,
+//     AXLE : number,
+//     BODY : string,
+//     MILEAGE_L_PER_100KM : number,
+//     PRODUCTION_PERIOD : string,
+//     ENGINE_TYPE :string,
+//     TRANSMISSION_TYPE? : string,
+//     WARRANTY? : number,
+//     SEATING_CAPACITY? : number,
+//     ENGINE_CAPACITY? : number,
+//     MODEL : string,
+//     COLOR : string,
+// }    
 
 const AdminPanel: React.FC = () => {
   const navigate = useNavigate();
@@ -122,14 +123,14 @@ const deleteUser = async (id: number) => {
   //can be deleted
   
   return (
-    <div className="min-h-screen p-4 sm:p-8">
+    <div className="min-h-screen p-4 sm:p-8 bg-background">
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Admin Dashboard</h1>
-      <div className="bg-white shadow-md rounded-lg mb-10 p-4 sm:p-6">
+      <div className="shadow-md rounded-lg mb-10 p-4 sm:p-6">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">Users</h2>
         <div className="overflow-x-auto">
           <table className="table-auto w-full border-collapse border border-gray-300 text-sm">
             <thead>
-                <tr className="bg-gray-200">
+                <tr className="bg-background-secondary">
                     <th className="border border-gray-300 px-2 py-2 text-center">Name</th>
                     <th className="border border-gray-300 px-2 py-2 text-center">EMAIL</th>
                     <th className="border border-gray-300 px-2 py-2 text-center">WHATSAPP</th>
@@ -163,12 +164,12 @@ const deleteUser = async (id: number) => {
         </div>
       </div>
 
-      <div className="bg-white shadow-md rounded-lg p-4 sm:p-6">
+      <div className="shadow-md rounded-lg p-4 sm:p-6">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">Products</h2>
         <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border border-gray-300 text-sm">
             <thead>
-                <tr className="bg-gray-200">
+                <tr className="bg-background-secondary">
                 <th className="border border-gray-300 px-2 py-2 text-center">Image 1</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Image 2</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Name</th>

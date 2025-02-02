@@ -94,12 +94,13 @@ import HamburgerOptions from './HamburgerOptions.tsx';
 // import { IoIosCloseCircle } from 'react-icons/io';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Truck } from '../types.ts';
 
 //can be deleted
-interface Truck {
-  ID: number;
-  NAME: string;
-}
+// interface Truck {
+//   ID: number;
+//   NAME: string;
+// }
 //can be deleted
 
 const Navbar: React.FC = () => {
@@ -319,12 +320,12 @@ const Navbar: React.FC = () => {
         //   <button onClick={() => setIsSearchOpen(false)} className="absolute top-4 right-4 text-white text-3xl font-bold hover:scale-110 transition">✖</button>
         // </div>
 
-        <div className="fixed inset-0 bg-[#1D7493] flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-2/3 max-w-2xl">
-            <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full p-4 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+        <div className="fixed inset-0 bg-background-search flex items-center justify-center z-50">
+          <div className="bg-background p-6 rounded-lg shadow-lg w-2/3 max-w-2xl">
+            <input type="text" placeholder="Search..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full p-4 text-lg border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-background-search"/>
             <div className="mt-4 space-y-2 overflow-y-auto" style={{ maxHeight: "300px" }}>
               {filteredSuggestions.map((truck) => (
-                <div key={truck.ID} onClick={() => handleSuggestionClick(truck.ID)} className="p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200 transition">{truck.NAME}</div>
+                <div key={truck.ID} onClick={() => handleSuggestionClick(truck.ID)} className="p-3 bg-gray-100 rounded-lg cursor-pointer hover:bg-background-secondary transition">{truck.NAME}</div>
               ))}
               {filteredSuggestions.length === 0 && searchQuery.trim() && (
                 <div className="p-3 text-gray-500 text-center bg-gray-50 rounded-lg">No results found</div>
@@ -338,7 +339,7 @@ const Navbar: React.FC = () => {
       (isMenuOpen && !isWideScreen) ? (
         <HamburgerOptions isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsSearchOpen={setIsSearchOpen}/>
       ) : (
-        <nav className="flex items-center justify-between px-8 py-4 bg-white shadow-md">
+        <nav className="flex items-center justify-between px-8 py-4 bg-background shadow-md">
           <div className="flex xs:flex-row flex-col items-center space-x-0 xs:space-x-2 space-y-2 xs:space-y-0">
             <Link to='/'><img src='/assests/website-logo/BrandLogo.png' alt="Logo" className="h-16 w-auto" /></Link>
             <h1 className="font-playfair text-3xl text-[#272A2B] font-bold">TRUCK EXPORT</h1>

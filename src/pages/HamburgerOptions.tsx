@@ -30,7 +30,7 @@ const HamburgerOptions: React.FC<HamburgerType> = ({ isMenuOpen, setIsMenuOpen ,
     //         </div>
     // </div>
 
-    <div className={`fixed inset-0 bg-[#1D7493] text-[#f6f6f6] z-50 overflow-y-auto ${isMenuOpen ? 'block' : 'hidden'}`}>
+    <div className={`fixed inset-0 bg-background-search text-[#f6f6f6] z-50 overflow-y-auto ${isMenuOpen ? 'block' : 'hidden'}`}>
       <button onClick={() => setIsMenuOpen(false)} className="absolute top-4 right-4 font-bold text-3xl"><MdClose /></button>
       <div className="grid grid-cols-1 gap-4 mx-4 my-20 mb-4 text-center font-playfair  text-2xl font-semibold">
         <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>

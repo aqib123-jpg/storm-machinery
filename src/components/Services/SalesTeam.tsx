@@ -1,9 +1,10 @@
 import React from "react";
+import { TeamMember } from "../../types";
 
-interface TeamMember {
-  name: string;
-  imageSrc: string;
-}
+// interface TeamMember {
+//   name: string;
+//   imageSrc: string;
+// }
 
 const SalesTeam: React.FC = () => {
   const whatsappNumber = "923132651310";

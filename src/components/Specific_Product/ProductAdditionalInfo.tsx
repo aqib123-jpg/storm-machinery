@@ -69,12 +69,12 @@ const ProductAdditionalInfo: React.FC = () => {
   }
   
   return (
-    <div className="lg:px-16 md:px-8 px-4 py-8 my-12">
+    <div className="lg:px-16 md:px-8 px-4 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-6">
         <div className="space-y-2">
             <div className="relative lg:h-[75vh] md:h-[50vh] overflow-hidden" onMouseMove={handleMouseMove} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <img src={`/assests/uploads/${currentPic}`} alt="Main Product" className={`w-full h-full object-fit transition-transform duration-300 ${ isHovering ? "scale-150" : "scale-100"}`} style={{ transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,}}/>
-                <div className="absolute top-2 right-2 p-2 rounded-full cursor-pointer bg-white">
+                <div className="absolute top-2 right-2 p-2 rounded-full cursor-pointer bg-background">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M11 19a8 8 0 100-16 8 8 0 000 16zm7-2l4 4" />
                     </svg>
