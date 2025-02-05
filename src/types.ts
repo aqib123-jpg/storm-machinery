@@ -1,3 +1,4 @@
+import React from 'react';
 export interface formDataType {
   name : string,
   email : string , 
@@ -100,7 +101,7 @@ export interface FormFieldProps {
   isTextArea?: boolean;
 }
 
-export  interface TruckData {
+export interface TruckData {
   NAME?: string,
   PRICE?: number,
   CONDITION_OF_TRUCK: string,
