@@ -107,7 +107,7 @@ const ProductAdditionalInfo: React.FC = () => {
             </div>
         </div>
         <div className="pt-6">
-          <h1 className="text-4xl font-playfair font-bold text-[#272a2b] mb-4 leading-snug">{truck?.NAME}</h1>
+          <h1 className="text-4xl font-playfair font-bold text-textColor-heading mb-4 leading-snug">{truck?.NAME}</h1>
           {/* <p className="text-[#4b4c4c] mb-4 leading-relaxed">
             HOWO 6×4 dump truck is a powerful truck designed for heavy-duty
             transportation. It is equipped with a powerful engine, excellent
@@ -121,16 +121,16 @@ const ProductAdditionalInfo: React.FC = () => {
             energy-saving, adapts to complex transportation needs, and is ideal
             for engineering transportation.
           </p> */}
-          <p className="text-[#4b4c4c] mb-4 leading-relaxed">{truck?.DESCRIPTION}</p>
+          <p className="text-textColor-default mb-4 leading-relaxed">{truck?.DESCRIPTION}</p>
           
 
 
 
           <div className="mb-6">
-            <h2 className="text-lg font-inter font-semibold text-[#4b4c4c]">
+            <h2 className="text-lg font-inter font-semibold text-textColor-subheading">
               Free shipping on orders over $50!
             </h2>
-            <ul className="mt-2 space-y-1 text-[#4b4c4c] leading-relaxed">
+            <ul className="mt-2 space-y-1 text-textColor-default leading-relaxed">
               <li className="flex items-center gap-2"><BsShieldFillCheck /><span>Satisfaction Guaranteed</span></li>
               <li className="flex items-center gap-2"><BsShieldFillCheck/><span>No Hassle Refunds</span></li>
               <li className="flex items-center gap-2"><BsShieldFillCheck/><span>Secure Payments</span></li>
@@ -144,9 +144,9 @@ const ProductAdditionalInfo: React.FC = () => {
             <img src="/assests/paymentCards.png" alt="payment cards" />
           </div>
 
-          <div className="mt-6 text-sm font-semibold">
-            <p className="text-[#6d6d6d] font-inter"><span className="font-semibold">Category:</span> HOWO Truck</p>
-            <p className="text-[#6d6d6d] font-inter"><span className="font-semibold">Tags:</span> 8X4 Dump Truck, HOWO Dump Truck, Used Dump Truck</p>
+          <div className="mt-6 text-sm font-semibold text-textColor-heading font-inter">
+            <p><span>Category:</span> HOWO Truck</p>
+            <p><span>Tags:</span> 8X4 Dump Truck, HOWO Dump Truck, Used Dump Truck</p>
           </div>
         </div>
       </div>

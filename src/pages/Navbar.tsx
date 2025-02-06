@@ -339,22 +339,22 @@ const Navbar: React.FC = () => {
       (isMenuOpen && !isWideScreen) ? (
         <HamburgerOptions isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} setIsSearchOpen={setIsSearchOpen}/>
       ) : (
-        <nav className="flex items-center justify-between px-8 py-4 bg-background shadow-md">
+        <nav className="flex items-center justify-between px-8 py-4 bg-background-default shadow-md">
           <div className="flex xs:flex-row flex-col items-center space-x-0 xs:space-x-2 space-y-2 xs:space-y-0">
             <Link to='/'><img src='/assests/website-logo/BrandLogo.png' alt="Logo" className="h-16 w-auto" /></Link>
-            <h1 className="font-playfair text-3xl text-[#272A2B] font-bold">TRUCK EXPORT</h1>
+            <h1 className="font-playfair text-3xl text-textColor-heading font-bold">TRUCK EXPORT</h1>
           </div>
           {isWideScreen ? (
             <div>
               <ul className="hidden md:flex items-center space-x-8 text-[18px] font-inter">
-                <li><NavLink to='/' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Home</NavLink></li>
-                <li><NavLink to='/about' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>About</NavLink></li>
-                <li><NavLink to='/product' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Product</NavLink></li>
-                <li><NavLink to='/services' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Services</NavLink></li>
-                <li><NavLink to='/contact' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>Contact</NavLink></li>
-                <li><NavLink to='/faq' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-[#272a2b] transition duration-300' }>FAQ</NavLink></li>
+                <li><NavLink to='/' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>Home</NavLink></li>
+                <li><NavLink to='/about' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>About</NavLink></li>
+                <li><NavLink to='/product' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>Product</NavLink></li>
+                <li><NavLink to='/services' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>Services</NavLink></li>
+                <li><NavLink to='/contact' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>Contact</NavLink></li>
+                <li><NavLink to='/faq' className={({isActive}) => isActive ? 'text-blue-500 font-bold' : 'text-textColor-subheading transition duration-300' }>FAQ</NavLink></li>
                 <li className='flex items-center'>
-                  <button className="text-gray-700 hover:text-gray-900 font-bold" onClick={() => setIsSearchOpen(true)}>
+                  <button className="text-textColor-subheading font-bold" onClick={() => setIsSearchOpen(true)}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M11 19a8 8 0 100-16 8 8 0 000 16zm7-2l4 4" />
                     </svg>

@@ -6,7 +6,7 @@ import AboveFooter from '../components/Common_Pages/AboveFooter.tsx';
 
 const Faq: React.FC = () => {
   return (
-    <div className='bg-background'>
+    <div className='bg-background-default'>
       <FaqDescription/>
       <QuestionsAboutPurchasing/>
       <QuestionsAboutPayment/>

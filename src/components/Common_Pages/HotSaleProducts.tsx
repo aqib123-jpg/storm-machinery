@@ -17,7 +17,7 @@ const ProductGallery: React.FC = () => {
   ];
   return (
     <div className="p-8 my-32">
-      <h2 className="text-center text-3xl font-bold mb-8 font-playfair text-[#272a2b]">HOTS SALE PRODUCTS</h2>
+      <h2 className="text-center text-3xl font-bold mb-8 font-playfair text-textColor-heading">HOTS SALE PRODUCTS</h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 md:gap-20">
         {products.map((product, index) => (
           <div key={index} className="overflow-hidden grid grid-cols-10 xl:h-[55vh] lg:h-[45vh] md:h-[60vh] ">
@@ -25,7 +25,7 @@ const ProductGallery: React.FC = () => {
               <img src={product.image} alt={product.title} className="h-full w-full object-fit"/>
             </div>
             <div className="flex items-center justify-center rounded-r-lg">
-              <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-[#272a2b] font-semibold text-xs xs:text-sm">{product.title}</p>
+              <p className="font-inter transform -rotate-90 text-center whitespace-nowrap text-textColor-subheading font-semibold text-xs xs:text-sm">{product.title}</p>
             </div>
           </div>
         ))}

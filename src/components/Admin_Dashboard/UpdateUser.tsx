@@ -13,7 +13,7 @@ const UpdateUser = () => {
   console.log('id : ',id);
   return (
     <div className="flex flex-col items-center justify-center px-4 py-12 bg-background">
-      <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">UPDATE USER</h2>
+      <h2 className="text-center text-3xl font-bold text-textColor-heading mb-6 font-playfair">UPDATE USER</h2>
       <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => handleSubmit(e,id)}>
         <FormField id="name" name="name" value={formData.name} label="Name" placeholder="Update name" onChange={handleChange}/>
         <FormField id="email" name="email" type="email" value={formData.email} label="Email" placeholder="Update email" onChange={handleChange}/>

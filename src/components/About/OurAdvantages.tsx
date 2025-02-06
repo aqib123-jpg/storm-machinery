@@ -21,8 +21,8 @@ const OurAdvantages:React.FC = () => {
         </div>
         <div className="flex flex-col items-center justify-center order-2 md:order-1">
             <div>
-                <h1 className="text-4xl text-[#272a2b] font-playfair font-semibold">OUR ADVANTAGES</h1>
-                <p className="text-[#4b4c4c] font-inter my-4 text-lg">
+                <h1 className="text-4xl text-textColor-heading font-playfair font-semibold">OUR ADVANTAGES</h1>
+                <p className="text-textColor-default font-inter my-4 text-lg">
                     We have established a solid market foundation in the African and South American markets. By deeply understanding the specific needs of the local markets, we continuously adjust our products and services to ensure that our solutions can effectively help customers overcome the transportation and logistics challenges they encounter locally.
                 </p>
             </div>

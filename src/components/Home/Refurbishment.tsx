@@ -10,8 +10,8 @@ const Refurbishment: React.FC = () => {
         <img src="/assests/Refurbishment-second-pic.jpg" alt="Right Image" className="w-full h-full object-cover rounded-lg" />
       </div>
       <div className="md:h-[100vh] lg:h-[60vh] lg:col-span-2 flex flex-col justify-center md:ml-6 order-1 lg:order-3">
-        <h2 className="text-2xl mb-4 font-playfair font-semibold  text-[#272a2b] ">Professional truck refurbishment factory</h2>
-        <p className="font-inter text-[#4b4c4c]">
+        <h2 className="text-2xl mb-4 font-playfair font-semibold  text-textColor-subheading">Professional truck refurbishment factory</h2>
+        <p className="font-inter text-textColor-default">
           We strictly control product quality to ensure that every truck and trailer meets international standards
           and the highest industry requirements before delivery to customers.
         </p>

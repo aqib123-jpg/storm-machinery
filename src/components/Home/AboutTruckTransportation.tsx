@@ -23,7 +23,7 @@ const AboutTruckTransportation: React.FC = () => {
   return (
     <div className="my-20 flex flex-col lg:flex-row lg:items-start lg:space-x-8 px-8 overflow-hidden">
       <div className="flex-1">
-        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-left text-[#272a2b] font-playfair ">
+        <h1 className="text-2xl md:text-3xl font-bold mb-6 text-left text-textColor-heading font-playfair ">
           ABOUT TRUCK TRANSPORTATION
         </h1>
       
@@ -57,8 +57,8 @@ const AboutTruckTransportation: React.FC = () => {
             <div className="text-3xl text-[#2596BE]"><FaBullseye/>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-[#272a2b] font-playfair">{section.title}</h3>
-              <p className="text-base text-[#393939] mt-2 leading-relaxed font-inter">
+              <h3 className="text-lg font-bold text-textColor-subheading font-playfair">{section.title}</h3>
+              <p className="text-base text-textColor-default mt-2 leading-relaxed font-inter">
                 {section.description}
               </p>
             </div>

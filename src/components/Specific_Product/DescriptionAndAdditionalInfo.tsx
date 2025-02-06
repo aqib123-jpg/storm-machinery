@@ -10,7 +10,7 @@ interface TabProps {
 }
 
 const Tab: React.FC<TabProps> = ({ label, value, isActive, onClick }) => (
-  <span onClick={() => onClick(value)} className={`font-inter cursor-pointer text-base font-bold px-2 py-1 ${isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-[#393939]'}`}>{label}</span>
+  <span onClick={() => onClick(value)} className={`font-inter cursor-pointer text-base font-bold px-2 py-1 ${isActive ? 'text-blue-500 border-b-2 border-blue-500' : 'text-textColor-heading'}`}>{label}</span>
 );
 
 const TabbedContainer: React.FC = () => {

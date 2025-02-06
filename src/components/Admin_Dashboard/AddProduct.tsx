@@ -255,8 +255,8 @@ const AddProduct: React.FC = () => {
 
 
   return (
-    <div className="flex flex-col items-center justify-center px-4 py-12 bg-background">
-      <h2 className="text-center text-3xl font-bold text-[#272a2b] mb-6 font-playfair">Add Product</h2>
+    <div className="flex flex-col items-center justify-center px-4 py-12 bg-background-default" >
+      <h2 className="text-center text-3xl font-bold text-textColor-heading mb-6 font-playfair">Add Product</h2>
       <form className="w-full max-w-md bg-background-form p-6 rounded-lg shadow-lg text-[#fff]" onSubmit={(e) => sendData(e)} encType="multipart/form-data">
         <input type="text" name='name' value={formData.name || ''} onChange={handleInputChange} placeholder={`Name ${(required.name) ? '*' : ''}`} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>
         <input type="number" name='price' value={formData.price || ''} onChange={handleInputChange} placeholder={`Price ${(required.price) ? '*' : ''}`} className="w-full p-3 my-2 rounded-md bg-blue-400 placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300"/>

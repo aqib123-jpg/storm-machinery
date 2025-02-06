@@ -29,8 +29,8 @@ const ContactInfo: React.FC = () => {
       {contactDetails.map((item, index) => (
         <div key={index} className="flex flex-col items-center text-center p-6 rounded-lg">
           <div className="flex items-center justify-center p-3 mb-4 bg-[#2596BE] rounded-full text-2xl">{item.icon}</div>
-          <h3 className="text-lg font-semibold mb-2 font-inter text-[#272a2b]">{item.title}</h3>
-          <p className="text-[#393939] font-inter">{item.description}</p>
+          <h3 className="text-lg font-semibold mb-2 font-inter text-textColor-heading">{item.title}</h3>
+          <p className="text-textColor-default font-inter">{item.description}</p>
         </div>
       ))}
     </div>

@@ -4,8 +4,8 @@ import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="flex flex-col lg:flex-row lg:justify-between px-6 bg-background gap-y-4 py-5">
-        <div className="text-lg text-gray-700 text-center">
+    <footer className="flex flex-col lg:flex-row lg:justify-between px-6 bg-background-default gap-y-4 py-5">
+        <div className="text-lg text-textColor-subheading text-center">
                 <p>&copy; 2024 Shondong Storm Machinery CO., LTD.</p>
         </div>
         <div className="flex gap-x-4 justify-end">

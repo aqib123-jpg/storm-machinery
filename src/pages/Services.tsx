@@ -10,7 +10,7 @@ import SalesTeam from '../components/Services/SalesTeam.tsx';
 const Services: React.FC = () => {
   //console.log('inside the services tag');
   return (
-    <div className='bg-background'>
+    <div className='bg-background-default'>
       <ServicesDescription/>
       <ServicesAdvantages/>
       <ServicesProfessionalism/>

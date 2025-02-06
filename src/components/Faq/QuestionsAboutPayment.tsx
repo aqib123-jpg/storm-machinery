@@ -12,10 +12,10 @@ const FAQItem: React.FC<FAQItemProps> = ({ title, content, isOpen, onToggle }) =
     <div className="py-4 sm:px-3 border-b border-gray-300 font-inter">
       <h2 onClick={onToggle} className="text-lg flex items-center cursor-pointer text-[#272A2B] ">
         {isOpen ? "➖" : "➕"} 
-        <span className="ml-2 text-[#272a2b] hover:text-[#2596be]">{title}</span>
+        <span className="ml-2 text-textColor-subheading hover:text-[#2596be]">{title}</span>
       </h2>
       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"}`}>
-        <p className="mt-2 text-[#4b4c4c]">{content}</p>
+        <p className="mt-2 text-textColor-default">{content}</p>
       </div>
     </div>
   );
@@ -53,7 +53,7 @@ const FAQPayment : React.FC = () => {
 
   return (
     <div className="my-20  p-8">
-        <h1 className="text-3xl font-bold text-[#272a2b] mb-6 font-playfair">Common Questions About Payment and Transportation</h1>
+        <h1 className="text-3xl font-bold text-textColor-heading mb-6 font-playfair">Common Questions About Payment and Transportation</h1>
         <div className="flex flex-col lg:flex-row gap-8">
             <div className="flex-1 rounded-lg lg:h-[100vh] flex items-center justify-center">
                 <img src="/assests/FaqPayment.jpg" className="h-auto w-auto lg:h-full lg:w-full lg:object-cover rounded-lg" alt="White Truck" />

@@ -6,8 +6,8 @@ const FaqDescription: React.FC = () => {
     // style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(/assets/brandLogo.png)' }}
     style={{backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url(/assests/faq.jpeg)',}}>
       <div className='xs:w-[50vw] text-center'>
-        <h1 className='text-4xl text-[#272a2b] font-playfair font-semibold'>FAQ</h1>
-        <p className='text-[#4b4c4c] font-inter my-4 text-lg'>Common Questions About Purchasing Used Trucks</p>
+        <h1 className='text-4xl text-textColor-heading font-playfair font-semibold'>FAQ</h1>
+        <p className='text-textColor-subheading font-inter my-4 text-lg'>Common Questions About Purchasing Used Trucks</p>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import Professionalism from '../components/About/Professionalism.tsx';
 const About: React.FC = () => {
   console.log('inside the About tag');
   return (
-    <div className='bg-background'>
+    <div className='bg-background-default'>
       <AboutUsDescription/>
       <OurAdvantages/>
       <SliderForBrands/>

@@ -107,7 +107,7 @@ const AdditionalInfo: React.FC = () => {
 
   return (
     <div className="w-full mx-auto p-5 md:p-10 font-sans">
-      <h2 className="text-3xl font-bold mb-5 text-[#272a2b] font-playfair">
+      <h2 className="text-3xl font-bold mb-5 text-textColor-heading font-playfair">
         Additional Information
       </h2>
       <table className="w-full border-collapse">
@@ -116,10 +116,10 @@ const AdditionalInfo: React.FC = () => {
             .filter(([key, value]) => value !== null && value !== undefined && value !== "") // Filter keys with non-empty values
             .map(([key, value], index) => (
               <tr key={index} className="border-b border-gray-300">
-                <td className="w-2/5 p-2 text-base font-inter font-bold text-left text-[#4b4c4c]">
+                <td className="w-2/5 p-2 text-base font-inter font-bold text-left text-textColor-subheading">
                   {key.replace(/_/g, " ")}
                 </td>
-                <td className="w-3/5 p-2 text-left text-[#4b4c4c] text-base font-inter">
+                <td className="w-3/5 p-2 text-left text-textColor-default text-base font-inter">
                   {value}
                 </td>
               </tr>

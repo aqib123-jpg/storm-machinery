@@ -41,11 +41,11 @@ const ProductDescription: React.FC = () => {
 
   return (
     <div className="p-5 md:p-10 leading-relaxed font-sans">
-      <h1 className="text-3xl font-bold font-playfair mb-5 text-[#272a2b]">Description</h1>
+      <h1 className="text-3xl font-bold font-playfair mb-5 text-textColor-heading">Description</h1>
       {descriptionData.map((item, index) => (
         <div key={index} className="mb-4 font-inter">
-          <strong className="text-lg text-[#4b5563] font-semibold">{item.title}: </strong>
-          <span className="text-base text-[#374151] leading-relaxed">{item.content}</span>
+          <strong className="text-lg text-textColor-subheading font-semibold">{item.title}: </strong>
+          <span className="text-base text-textColor-default leading-relaxed">{item.content}</span>
         </div>
       ))}
     </div>

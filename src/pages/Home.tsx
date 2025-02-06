@@ -8,7 +8,7 @@ import AboveFooter from '../components/Common_Pages/AboveFooter.tsx';
 
 const Home: React.FC = () => {
   return (
-    <div className='bg-background'>
+    <div className='bg-background-default'>
       <Description/>
       <Refurbishment/>
       <HotSaleProducts/>

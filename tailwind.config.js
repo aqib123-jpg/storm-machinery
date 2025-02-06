@@ -32,16 +32,16 @@ module.exports = {
         //   dark: "#7E22CE",
         // },
         background: {
-          DEFAULT: "#FFFFFF",//#FFFFFF
-          form : "#3B82F6", //#3B82F6
+          default: "#FFFFFF",//#FFFFFF
+          form : "#00FF00", //#3B82F6
           search : "#1D7493", //#1D7493
           secondary : "#E7EAEC",//#E7EAEC
         },
-        // text: {
-        //   primary: "#111827", 
-        //   secondary: "#6B7280",
-        //   light: "#9CA3AF", 
-        // },
+        textColor: {
+          default: "#4b4c4c",//#4b4c4c 
+          heading: "#272a2b",//#272a2b
+          subheading: "#393939",//#393939 
+        },
       },
       //can be deleted
     },

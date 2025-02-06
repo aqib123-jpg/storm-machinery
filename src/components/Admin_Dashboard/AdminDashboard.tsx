@@ -123,14 +123,14 @@ const deleteUser = async (id: number) => {
   //can be deleted
   
   return (
-    <div className="min-h-screen p-4 sm:p-8 bg-background">
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 text-center">Admin Dashboard</h1>
+    <div className="min-h-screen p-4 sm:p-8 bg-background-default">
+      <h1 className="text-2xl sm:text-3xl font-bold text-textColor-heading mb-6 text-center">Admin Dashboard</h1>
       <div className="shadow-md rounded-lg mb-10 p-4 sm:p-6">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-4">Users</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-textColor-subheading">Users</h2>
         <div className="overflow-x-auto">
           <table className="table-auto w-full border-collapse border border-gray-300 text-sm">
             <thead>
-                <tr className="bg-background-secondary">
+                <tr className="bg-background-secondary text-textColor-subheading">
                     <th className="border border-gray-300 px-2 py-2 text-center">Name</th>
                     <th className="border border-gray-300 px-2 py-2 text-center">EMAIL</th>
                     <th className="border border-gray-300 px-2 py-2 text-center">WHATSAPP</th>
@@ -142,7 +142,7 @@ const deleteUser = async (id: number) => {
                 {
                     (userInfo).map((users,index) => 
                         (
-                        <tr className="hover:bg-gray-50 transition" key={index}>
+                        <tr className="hover:bg-gray-50 transition text-textColor-default" key={index}>
                             <td className="border border-gray-300 px-2 py-2 text-center">{users.NAME}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{users.EMAIL}</td>
                             <td className="border border-gray-300 px-2 py-2 text-center">{users.WHATSAPP_NUMBER}</td>
@@ -165,11 +165,11 @@ const deleteUser = async (id: number) => {
       </div>
 
       <div className="shadow-md rounded-lg p-4 sm:p-6">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-4">Products</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-textColor-subheading">Products</h2>
         <div className="overflow-x-auto">
         <table className="table-auto w-full border-collapse border border-gray-300 text-sm">
             <thead>
-                <tr className="bg-background-secondary">
+                <tr className="bg-background-secondary text-textColor-subheading">
                 <th className="border border-gray-300 px-2 py-2 text-center">Image 1</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Image 2</th>
                 <th className="border border-gray-300 px-2 py-2 text-center">Name</th>
@@ -194,7 +194,7 @@ const deleteUser = async (id: number) => {
             <tbody>
                 {
                     (productInfo).map((item,index) => (
-                        <tr className="hover:bg-gray-50 transition" key={index}>
+                        <tr className="hover:bg-gray-50 transition text-textColor-default" key={index}>
                             {/* <td className="border border-gray-300 px-2 py-2 text-center">
                                 <div className="flex flex-wrap gap-2 justify-center">
                                     <img src={item.IMAGE1} alt='Truck Image1' className="w-14 h-14 rounded-lg"/>
