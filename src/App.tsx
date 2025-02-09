@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import Navbar from './pages/Navbar.tsx';
 import Footer from './pages/Footer.tsx';
